@@ -1,0 +1,696 @@
+\hypertarget{class_graph}{}\doxysection{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a902c5b3eacb66d60752525ab23297a95}{$\sim$\+Graph}} ()
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_graph_a089f7fc73ea9976295d387846ad36c69}{find\+Vertex}} (const int \&id) const
+\item 
+bool \mbox{\hyperlink{class_graph_a8df91d53fcd35d0e526fbc4201274db0}{add\+Vertex}} (const int \&id, const double \&lon, const double \&lat)
+\item 
+bool \mbox{\hyperlink{class_graph_a082ecf6809d431683bee76d78eb4d717}{add\+Edge}} (const int \&sourc, const int \&dest, double w) const
+\item 
+bool \mbox{\hyperlink{class_graph_af32ab67cf90a32b62278f685f8c51b98}{add\+Bidirectional\+Edge}} (const int \&sourc, const int \&dest, double w) const
+\item 
+void \mbox{\hyperlink{class_graph_a4d6a7016cb63fae941f9db1e64778ce7}{backtrack}} (int current\+Vertex, std\+::vector$<$ int $>$ \&current\+Path, double current\+Cost)
+\begin{DoxyCompactList}\small\item\em Backtracking algorithm to find the best path in a graph. This function is recursive and it is used to find the best path using the backtracking algorithm. Starting from a given current vertex, it explores all possible paths by recursively traversing the neighboring vertices. It keeps track of the current path and cost, updating the best path and cost whenever a complete cycle (path) is formed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}{get\+Num\+Vertex}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_a619ac583094079134074658e29463c0e}{get\+Vertex\+Set}} () const
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_ad179cbc8be49bddafc6dd56808b7303f}{get\+Best\+Path}} () const
+\item 
+double \mbox{\hyperlink{class_graph_a0a916c1d4af18fd3f97bb329840d632f}{get\+Best\+Cost}} () const
+\item 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \mbox{\hyperlink{class_graph_a94298b826225b9f4a4a1ce7d27536c52}{find\+Minimum\+Spanning\+Tree}} (std\+::vector$<$ int $>$ \&\mbox{\hyperlink{_mutable_priority_queue_8h_a915a9564b15f2c25e828da2e9a05769c}{parent}})
+\begin{DoxyCompactList}\small\item\em Find the minimum spanning tree using Prim\textquotesingle{}s algorithm. This function finds the minimum spanning tree (MST) of the graph using Prim\textquotesingle{}s algorithm. It starts from a specified start vertex and iteratively adds the minimum-\/weight edges that connect the already visited vertices to the newly visited vertices. The function returns a vector of pairs representing the edges of the minimum spanning tree. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_ada6255e27a2250f78b65e308eb4e7903}{are\+Vertices\+Connected}} (int vertex1, int vertex2)
+\begin{DoxyCompactList}\small\item\em This function checks if two vertices are connected. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a05f03efeb8ce9f2ae510b255430271a4}{calculate\+Total\+Distance}} (const std\+::vector$<$ int $>$ \&route)
+\begin{DoxyCompactList}\small\item\em Calculates the total distance of a route. This function calculates the total distance of a route. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a74ac3915ab78762e537d45657e30429b}{triangular\+Approximation}} ()
+\begin{DoxyCompactList}\small\item\em This function calculates the total distance of a route using the triangular approximation algorithm. This function calculates the total distance of a route using the triangular approximation algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a716e0acd93275a00a011bfa5f6c624d0}{nearest\+Neighbor}} (\mbox{\hyperlink{class_graph}{Graph}} \&graph)
+\begin{DoxyCompactList}\small\item\em This function calculates the best path using the nearest neighbor algorithm. This function calculates the total distance of a route using the nearest neighbor algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a5a800d17f2cb4a6780513838aaf93c0d}{tabu\+Search}} (\mbox{\hyperlink{class_graph}{Graph}} \&graph, int max\+Iterations, int tabu\+List\+Size, int max\+Iterations\+Without\+Improvement)
+\begin{DoxyCompactList}\small\item\em Perform Tabu Search algorithm to find an improved solution. This function implements the Tabu Search algorithm to find an improved solution for a given graph. It iteratively generates neighboring solutions and evaluates their costs. The algorithm maintains a tabu list to prevent revisiting previously visited solutions. If a better neighbor solution is found and it is not in the tabu list, it becomes the current solution. The algorithm stops when either the maximum number of iterations is reached or no improvement is made for a certain number of iterations. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_aaff2dbf5f385f7b22894b9ec290c0eb4}{is\+Tabu\+Aspirational}} (const std\+::vector$<$ int $>$ \&solution, const std\+::deque$<$ std\+::vector$<$ int $>$ $>$ \&tabu\+List, const double diversification\+Threshold)
+\begin{DoxyCompactList}\small\item\em Check if a solution is tabu aspirational. This function checks if a solution is tabu aspirational by comparing it with the solutions in the tabu list. A solution is tabu aspirational if its diversity with any of the solutions in the tabu list is greater than the diversification threshold. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_ab7d78c739188d98a06e1ff3d79a584a2}{is\+Tabu}} (const std\+::vector$<$ int $>$ \&solution, const std\+::deque$<$ std\+::vector$<$ int $>$ $>$ \&tabu\+List)
+\begin{DoxyCompactList}\small\item\em Check if a solution is tabu. This function checks if a solution is tabu by comparing it with the solutions in the tabu list. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_afacb86b8087bea43a76f8efa604139b6}{generate\+Random\+Solution}} ()
+\begin{DoxyCompactList}\small\item\em Generate a random solution for the graph. This function generates a random solution for the graph by randomly shuffling the vertices. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_ac352130e3587cea1598abbe6a1175384}{generate\+Neighbor\+Solution}} (const std\+::vector$<$ int $>$ \&solution)
+\begin{DoxyCompactList}\small\item\em Generate a neighboring solution based on a given solution. This function generates a neighboring solution by applying a random mutation to the given solution. The mutation can be one of four types\+: swap, deletion, reversal, or scramble. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a961b73cac0c31b9f472b9441a713d1f2}{simulated\+Annealing}} (\mbox{\hyperlink{class_graph}{Graph}} \&graph, int max\+Iterations, double initial\+Temperature, double cooling\+Rate)
+\begin{DoxyCompactList}\small\item\em Perform the Simulated Annealing algorithm on the graph. This function applies the Simulated Annealing algorithm to find an optimal solution for the given graph. It starts with an initial solution and iteratively explores neighboring solutions by accepting or rejecting them based on a probability. The algorithm aims to converge towards the global optimum by gradually decreasing the acceptance probability with each iteration. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_ae9105821b1b565a16fd6a917dd844a10}{acceptance\+Probability}} (double current\+Cost, double candidate\+Cost, double temperature)
+\begin{DoxyCompactList}\small\item\em Calculate the acceptance probability for a candidate solution. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_graph_adef310ea9f68e12bd1f60c18fddad26d}{generate\+Neighbors}} (const std\+::vector$<$ int $>$ \&solution)
+\item 
+double \mbox{\hyperlink{class_graph_a628f960002a46dced00b8576d945b3cf}{evaluate\+Solution}} (\mbox{\hyperlink{class_graph}{Graph}} \&graph, const std\+::vector$<$ int $>$ \&solution)
+\begin{DoxyCompactList}\small\item\em Evaluate a solution for the graph. This function evaluates a solution for the graph by calculating the total cost of the solution. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_graph_a55f002e63b0aaac8c6806c23c629c836}{construct\+MST}} (\mbox{\hyperlink{class_graph}{Graph}} \&graph)
+\begin{DoxyCompactList}\small\item\em Construct a minimum spanning tree for the graph. This function constructs a minimum spanning tree for the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_a8e9909acdfa72e74a26128514c8d4347}{find\+Vertices\+With\+Odd\+Degrees}} (const \mbox{\hyperlink{class_graph}{Graph}} \&mst\+Graph)
+\begin{DoxyCompactList}\small\item\em Find the vertices with odd degrees in the graph. This function finds the vertices with odd degrees in the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_graph_afa7de765e6857b5c27c468d116b54303}{find\+Minimum\+Weight\+Matching}} (const \mbox{\hyperlink{class_graph}{Graph}} \&graph, const std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \&odd\+Degree\+Vertices)
+\begin{DoxyCompactList}\small\item\em Find the minimum weight matching for the graph. This function finds the minimum weight matching for the graph. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{class_graph_a5ff5be234d0d81cdd1990a5449c74c50}{combine\+Graphs}} (const \mbox{\hyperlink{class_graph}{Graph}} \&mst\+Graph, const \mbox{\hyperlink{class_graph}{Graph}} \&matching\+Graph)
+\begin{DoxyCompactList}\small\item\em Combine the minimum spanning tree and the minimum weight matching. This function combines the minimum spanning tree and the minimum weight matching. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_a7eaf9785bb3717ce22b6570286179fb1}{find\+Eulerian\+Circuit}} (\mbox{\hyperlink{class_graph}{Graph}} \&multigraph)
+\begin{DoxyCompactList}\small\item\em Find an Eulerian circuit for the multigraph. This function finds an Eulerian circuit for the multigraph. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_aa62e7d089926d34b8cac9b7cd3ccd88b}{remove\+Duplicates}} (const std\+::vector$<$ int $>$ \&eulerian\+Circuit)
+\begin{DoxyCompactList}\small\item\em Remove duplicate vertices from the Eulerian circuit. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_af7a5db6e0f2ce3b90d05a7335cc064ed}{get\+Edge\+Weight}} (int source, int destination) const
+\begin{DoxyCompactList}\small\item\em Get the edge weight between two vertices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_add9d3c4a58a1512934ca50e9d23a7c83}{christofides\+Algorithm}} (\mbox{\hyperlink{class_graph}{Graph}} \&graph)
+\begin{DoxyCompactList}\small\item\em This function implements the Christofides algorithm. This function implements the Christofides algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_ac6c8ef3f68bab7aa3c826b6f755396c7}{MST}} ()
+\begin{DoxyCompactList}\small\item\em Construct a minimum spanning tree for the graph. This function constructs a minimum spanning tree for the graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static static void \mbox{\hyperlink{class_graph_a072430e1f6120bf79e19ad38dc556aa5}{dfs}} (int current\+Vertex, const std\+::vector$<$ int $>$ \&\mbox{\hyperlink{_mutable_priority_queue_8h_a915a9564b15f2c25e828da2e9a05769c}{parent}}, std\+::vector$<$ bool $>$ \&visited, std\+::stack$<$ int $>$ \&vertex\+Stack, std\+::vector$<$ int $>$ \&route)
+\begin{DoxyCompactList}\small\item\em Performs a depth-\/first search (DFS) traversal of the graph. This function performs a depth-\/first search (DFS) traversal of the graph, starting at the specified vertex. The DFS traversal is implemented iteratively using a stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_graph_a7dfcef08a9286cf144902cd7e56940ee}{find\+Vertex\+Idx}} (const int \&id) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}{vertex\+Set}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_ad4e099ad9b42cb93771db6b434bc6693}{best\+Path}}
+\item 
+double \mbox{\hyperlink{class_graph_a9f00b32afb4745db9d4d415003500579}{best\+Cost}} = std\+::numeric\+\_\+limits$<$double$>$\+::max()
+\item 
+double $\ast$$\ast$ \mbox{\hyperlink{class_graph_a9e61864da69191c1896a25a708d1a02d}{dist\+Matrix}} = nullptr
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}{path\+Matrix}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a902c5b3eacb66d60752525ab23297a95}\label{class_graph_a902c5b3eacb66d60752525ab23297a95}} 
+\index{Graph@{Graph}!````~Graph@{$\sim$Graph}}
+\index{````~Graph@{$\sim$Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{$\sim$Graph()}{~Graph()}}
+{\footnotesize\ttfamily Graph\+::$\sim$\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_ae9105821b1b565a16fd6a917dd844a10}\label{class_graph_ae9105821b1b565a16fd6a917dd844a10}} 
+\index{Graph@{Graph}!acceptanceProbability@{acceptanceProbability}}
+\index{acceptanceProbability@{acceptanceProbability}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{acceptanceProbability()}{acceptanceProbability()}}
+{\footnotesize\ttfamily double Graph\+::acceptance\+Probability (\begin{DoxyParamCaption}\item[{double}]{current\+Cost,  }\item[{double}]{candidate\+Cost,  }\item[{double}]{temperature }\end{DoxyParamCaption})}
+
+
+
+Calculate the acceptance probability for a candidate solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Cost} & \\
+\hline
+{\em candidate\+Cost} & \\
+\hline
+{\em temperature} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_af32ab67cf90a32b62278f685f8c51b98}\label{class_graph_af32ab67cf90a32b62278f685f8c51b98}} 
+\index{Graph@{Graph}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{const int \&}]{sourc,  }\item[{const int \&}]{dest,  }\item[{double}]{w }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a082ecf6809d431683bee76d78eb4d717}\label{class_graph_a082ecf6809d431683bee76d78eb4d717}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{const int \&}]{sourc,  }\item[{const int \&}]{dest,  }\item[{double}]{w }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a8df91d53fcd35d0e526fbc4201274db0}\label{class_graph_a8df91d53fcd35d0e526fbc4201274db0}} 
+\index{Graph@{Graph}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id,  }\item[{const double \&}]{lon,  }\item[{const double \&}]{lat }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graph_ada6255e27a2250f78b65e308eb4e7903}\label{class_graph_ada6255e27a2250f78b65e308eb4e7903}} 
+\index{Graph@{Graph}!areVerticesConnected@{areVerticesConnected}}
+\index{areVerticesConnected@{areVerticesConnected}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{areVerticesConnected()}{areVerticesConnected()}}
+{\footnotesize\ttfamily bool Graph\+::are\+Vertices\+Connected (\begin{DoxyParamCaption}\item[{int}]{vertex1,  }\item[{int}]{vertex2 }\end{DoxyParamCaption})}
+
+
+
+This function checks if two vertices are connected. 
+
+\begin{DoxyNote}{Note}
+complexity\+: O(n) n is the number of edges in the graph; 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em vertex1} & \\
+\hline
+{\em vertex2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a4d6a7016cb63fae941f9db1e64778ce7}\label{class_graph_a4d6a7016cb63fae941f9db1e64778ce7}} 
+\index{Graph@{Graph}!backtrack@{backtrack}}
+\index{backtrack@{backtrack}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{backtrack()}{backtrack()}}
+{\footnotesize\ttfamily void Graph\+::backtrack (\begin{DoxyParamCaption}\item[{int}]{current\+Vertex,  }\item[{std\+::vector$<$ int $>$ \&}]{current\+Path,  }\item[{double}]{current\+Cost }\end{DoxyParamCaption})}
+
+
+
+Backtracking algorithm to find the best path in a graph. This function is recursive and it is used to find the best path using the backtracking algorithm. Starting from a given current vertex, it explores all possible paths by recursively traversing the neighboring vertices. It keeps track of the current path and cost, updating the best path and cost whenever a complete cycle (path) is formed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Vertex} & The current vertex being visited. \\
+\hline
+{\em current\+Path} & The current path being constructed. \\
+\hline
+{\em current\+Cost} & The current cost of the path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The complexity of the backtracking algorithm depends on the size and structure of the graph. In the worst case, where every vertex is connected to every other vertex, the number of possible paths to explore grows factorially with the number of vertices. Therefore, the complexity can be expressed as O((n-\/1)!), where n is the number of vertices in the graph. It is important to note that the backtracking algorithm can be computationally expensive for large graphs, and alternative algorithms such as dynamic programming or heuristics may be more efficient in those cases. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_graph_a05f03efeb8ce9f2ae510b255430271a4}\label{class_graph_a05f03efeb8ce9f2ae510b255430271a4}} 
+\index{Graph@{Graph}!calculateTotalDistance@{calculateTotalDistance}}
+\index{calculateTotalDistance@{calculateTotalDistance}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{calculateTotalDistance()}{calculateTotalDistance()}}
+{\footnotesize\ttfamily double Graph\+::calculate\+Total\+Distance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{route }\end{DoxyParamCaption})}
+
+
+
+Calculates the total distance of a route. This function calculates the total distance of a route. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+complexity\+: O(n) n is the number of vertices in the graph; 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_add9d3c4a58a1512934ca50e9d23a7c83}\label{class_graph_add9d3c4a58a1512934ca50e9d23a7c83}} 
+\index{Graph@{Graph}!christofidesAlgorithm@{christofidesAlgorithm}}
+\index{christofidesAlgorithm@{christofidesAlgorithm}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{christofidesAlgorithm()}{christofidesAlgorithm()}}
+{\footnotesize\ttfamily void Graph\+::christofides\+Algorithm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{graph }\end{DoxyParamCaption})}
+
+
+
+This function implements the Christofides algorithm. This function implements the Christofides algorithm. 
+
+\begin{DoxyNote}{Note}
+complexity\+: O(\+V$^\wedge$3) 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a5ff5be234d0d81cdd1990a5449c74c50}\label{class_graph_a5ff5be234d0d81cdd1990a5449c74c50}} 
+\index{Graph@{Graph}!combineGraphs@{combineGraphs}}
+\index{combineGraphs@{combineGraphs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{combineGraphs()}{combineGraphs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} Graph\+::combine\+Graphs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_graph}{Graph}} \&}]{mst\+Graph,  }\item[{const \mbox{\hyperlink{class_graph}{Graph}} \&}]{matching\+Graph }\end{DoxyParamCaption})}
+
+
+
+Combine the minimum spanning tree and the minimum weight matching. This function combines the minimum spanning tree and the minimum weight matching. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mst\+Graph} & \\
+\hline
+{\em matching\+Graph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a55f002e63b0aaac8c6806c23c629c836}\label{class_graph_a55f002e63b0aaac8c6806c23c629c836}} 
+\index{Graph@{Graph}!constructMST@{constructMST}}
+\index{constructMST@{constructMST}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{constructMST()}{constructMST()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} Graph\+::construct\+MST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{graph }\end{DoxyParamCaption})}
+
+
+
+Construct a minimum spanning tree for the graph. This function constructs a minimum spanning tree for the graph. 
+
+\begin{DoxyReturn}{Returns}
+A minimum spanning tree for the graph. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a072430e1f6120bf79e19ad38dc556aa5}\label{class_graph_a072430e1f6120bf79e19ad38dc556aa5}} 
+\index{Graph@{Graph}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily void Graph\+::dfs (\begin{DoxyParamCaption}\item[{int}]{current\+Vertex,  }\item[{const std\+::vector$<$ int $>$ \&}]{parent,  }\item[{std\+::vector$<$ bool $>$ \&}]{visited,  }\item[{std\+::stack$<$ int $>$ \&}]{vertex\+Stack,  }\item[{std\+::vector$<$ int $>$ \&}]{route }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Performs a depth-\/first search (DFS) traversal of the graph. This function performs a depth-\/first search (DFS) traversal of the graph, starting at the specified vertex. The DFS traversal is implemented iteratively using a stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em current\+Vertex} & \\
+\hline
+{\em parent} & \\
+\hline
+{\em visited} & \\
+\hline
+{\em vertex\+Stack} & \\
+\hline
+{\em route} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a628f960002a46dced00b8576d945b3cf}\label{class_graph_a628f960002a46dced00b8576d945b3cf}} 
+\index{Graph@{Graph}!evaluateSolution@{evaluateSolution}}
+\index{evaluateSolution@{evaluateSolution}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{evaluateSolution()}{evaluateSolution()}}
+{\footnotesize\ttfamily double Graph\+::evaluate\+Solution (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{graph,  }\item[{const std\+::vector$<$ int $>$ \&}]{solution }\end{DoxyParamCaption})}
+
+
+
+Evaluate a solution for the graph. This function evaluates a solution for the graph by calculating the total cost of the solution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+{\em solution} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a7eaf9785bb3717ce22b6570286179fb1}\label{class_graph_a7eaf9785bb3717ce22b6570286179fb1}} 
+\index{Graph@{Graph}!findEulerianCircuit@{findEulerianCircuit}}
+\index{findEulerianCircuit@{findEulerianCircuit}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findEulerianCircuit()}{findEulerianCircuit()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Graph\+::find\+Eulerian\+Circuit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{multigraph }\end{DoxyParamCaption})}
+
+
+
+Find an Eulerian circuit for the multigraph. This function finds an Eulerian circuit for the multigraph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em multigraph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+complexity\+: O($\vert$\+E$\vert$ + $\vert$\+V$\vert$) 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a94298b826225b9f4a4a1ce7d27536c52}\label{class_graph_a94298b826225b9f4a4a1ce7d27536c52}} 
+\index{Graph@{Graph}!findMinimumSpanningTree@{findMinimumSpanningTree}}
+\index{findMinimumSpanningTree@{findMinimumSpanningTree}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findMinimumSpanningTree()}{findMinimumSpanningTree()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ Graph\+::find\+Minimum\+Spanning\+Tree (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{parent }\end{DoxyParamCaption})}
+
+
+
+Find the minimum spanning tree using Prim\textquotesingle{}s algorithm. This function finds the minimum spanning tree (MST) of the graph using Prim\textquotesingle{}s algorithm. It starts from a specified start vertex and iteratively adds the minimum-\/weight edges that connect the already visited vertices to the newly visited vertices. The function returns a vector of pairs representing the edges of the minimum spanning tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & A reference to a vector to store the parent indices for each vertex in the MST. The parent vector is updated during the MST construction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of pairs representing the edges of the minimum spanning tree. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function assumes that the graph is connected, undirected, and weighted. It uses a priority queue to efficiently select the minimum-\/weight edges. 
+
+The complexity of this function is O(\+E log V), where E is the number of edges and V is the number of vertices in the graph. Prim\textquotesingle{}s algorithm iterates over all vertices and edges once, and the priority queue operations take O(log V) time. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_graph_afa7de765e6857b5c27c468d116b54303}\label{class_graph_afa7de765e6857b5c27c468d116b54303}} 
+\index{Graph@{Graph}!findMinimumWeightMatching@{findMinimumWeightMatching}}
+\index{findMinimumWeightMatching@{findMinimumWeightMatching}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findMinimumWeightMatching()}{findMinimumWeightMatching()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} Graph\+::find\+Minimum\+Weight\+Matching (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_graph}{Graph}} \&}]{graph,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \&}]{odd\+Degree\+Vertices }\end{DoxyParamCaption})}
+
+
+
+Find the minimum weight matching for the graph. This function finds the minimum weight matching for the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+{\em odd\+Degree\+Vertices} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a089f7fc73ea9976295d387846ad36c69}\label{class_graph_a089f7fc73ea9976295d387846ad36c69}} 
+\index{Graph@{Graph}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Graph\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a7dfcef08a9286cf144902cd7e56940ee}\label{class_graph_a7dfcef08a9286cf144902cd7e56940ee}} 
+\index{Graph@{Graph}!findVertexIdx@{findVertexIdx}}
+\index{findVertexIdx@{findVertexIdx}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertexIdx()}{findVertexIdx()}}
+{\footnotesize\ttfamily int Graph\+::find\+Vertex\+Idx (\begin{DoxyParamCaption}\item[{const int \&}]{id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_a8e9909acdfa72e74a26128514c8d4347}\label{class_graph_a8e9909acdfa72e74a26128514c8d4347}} 
+\index{Graph@{Graph}!findVerticesWithOddDegrees@{findVerticesWithOddDegrees}}
+\index{findVerticesWithOddDegrees@{findVerticesWithOddDegrees}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVerticesWithOddDegrees()}{findVerticesWithOddDegrees()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Graph\+::find\+Vertices\+With\+Odd\+Degrees (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_graph}{Graph}} \&}]{graph }\end{DoxyParamCaption})}
+
+
+
+Find the vertices with odd degrees in the graph. This function finds the vertices with odd degrees in the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_adef310ea9f68e12bd1f60c18fddad26d}\label{class_graph_adef310ea9f68e12bd1f60c18fddad26d}} 
+\index{Graph@{Graph}!generateNeighbors@{generateNeighbors}}
+\index{generateNeighbors@{generateNeighbors}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{generateNeighbors()}{generateNeighbors()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ int $>$ $>$ Graph\+::generate\+Neighbors (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{solution }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_graph_ac352130e3587cea1598abbe6a1175384}\label{class_graph_ac352130e3587cea1598abbe6a1175384}} 
+\index{Graph@{Graph}!generateNeighborSolution@{generateNeighborSolution}}
+\index{generateNeighborSolution@{generateNeighborSolution}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{generateNeighborSolution()}{generateNeighborSolution()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Graph\+::generate\+Neighbor\+Solution (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{solution }\end{DoxyParamCaption})}
+
+
+
+Generate a neighboring solution based on a given solution. This function generates a neighboring solution by applying a random mutation to the given solution. The mutation can be one of four types\+: swap, deletion, reversal, or scramble. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & The current solution for which to generate a neighbor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A neighboring solution obtained by applying a random mutation to the given solution. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function creates a copy of the given solution and performs a random mutation on the copy. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_afacb86b8087bea43a76f8efa604139b6}\label{class_graph_afacb86b8087bea43a76f8efa604139b6}} 
+\index{Graph@{Graph}!generateRandomSolution@{generateRandomSolution}}
+\index{generateRandomSolution@{generateRandomSolution}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{generateRandomSolution()}{generateRandomSolution()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Graph\+::generate\+Random\+Solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Generate a random solution for the graph. This function generates a random solution for the graph by randomly shuffling the vertices. 
+
+\begin{DoxyReturn}{Returns}
+A random solution for the graph. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a0a916c1d4af18fd3f97bb329840d632f}\label{class_graph_a0a916c1d4af18fd3f97bb329840d632f}} 
+\index{Graph@{Graph}!getBestCost@{getBestCost}}
+\index{getBestCost@{getBestCost}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getBestCost()}{getBestCost()}}
+{\footnotesize\ttfamily double Graph\+::get\+Best\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_ad179cbc8be49bddafc6dd56808b7303f}\label{class_graph_ad179cbc8be49bddafc6dd56808b7303f}} 
+\index{Graph@{Graph}!getBestPath@{getBestPath}}
+\index{getBestPath@{getBestPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getBestPath()}{getBestPath()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Graph\+::get\+Best\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_af7a5db6e0f2ce3b90d05a7335cc064ed}\label{class_graph_af7a5db6e0f2ce3b90d05a7335cc064ed}} 
+\index{Graph@{Graph}!getEdgeWeight@{getEdgeWeight}}
+\index{getEdgeWeight@{getEdgeWeight}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getEdgeWeight()}{getEdgeWeight()}}
+{\footnotesize\ttfamily double Graph\+::get\+Edge\+Weight (\begin{DoxyParamCaption}\item[{int}]{source,  }\item[{int}]{destination }\end{DoxyParamCaption}) const}
+
+
+
+Get the edge weight between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & \\
+\hline
+{\em destination} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}\label{class_graph_abb5e0517e2979c54eebdafc2a9875e8f}} 
+\index{Graph@{Graph}!getNumVertex@{getNumVertex}}
+\index{getNumVertex@{getNumVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
+{\footnotesize\ttfamily int Graph\+::get\+Num\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_a619ac583094079134074658e29463c0e}\label{class_graph_a619ac583094079134074658e29463c0e}} 
+\index{Graph@{Graph}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Graph\+::get\+Vertex\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graph_ab7d78c739188d98a06e1ff3d79a584a2}\label{class_graph_ab7d78c739188d98a06e1ff3d79a584a2}} 
+\index{Graph@{Graph}!isTabu@{isTabu}}
+\index{isTabu@{isTabu}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{isTabu()}{isTabu()}}
+{\footnotesize\ttfamily bool Graph\+::is\+Tabu (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{solution,  }\item[{const std\+::deque$<$ std\+::vector$<$ int $>$ $>$ \&}]{tabu\+List }\end{DoxyParamCaption})}
+
+
+
+Check if a solution is tabu. This function checks if a solution is tabu by comparing it with the solutions in the tabu list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & \\
+\hline
+{\em tabu\+List} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the solution is tabu, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_aaff2dbf5f385f7b22894b9ec290c0eb4}\label{class_graph_aaff2dbf5f385f7b22894b9ec290c0eb4}} 
+\index{Graph@{Graph}!isTabuAspirational@{isTabuAspirational}}
+\index{isTabuAspirational@{isTabuAspirational}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{isTabuAspirational()}{isTabuAspirational()}}
+{\footnotesize\ttfamily bool Graph\+::is\+Tabu\+Aspirational (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{solution,  }\item[{const std\+::deque$<$ std\+::vector$<$ int $>$ $>$ \&}]{tabu\+List,  }\item[{const double}]{diversification\+Threshold }\end{DoxyParamCaption})}
+
+
+
+Check if a solution is tabu aspirational. This function checks if a solution is tabu aspirational by comparing it with the solutions in the tabu list. A solution is tabu aspirational if its diversity with any of the solutions in the tabu list is greater than the diversification threshold. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution} & \\
+\hline
+{\em tabu\+List} & \\
+\hline
+{\em diversification\+Threshold} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the solution is tabu aspirational, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ac6c8ef3f68bab7aa3c826b6f755396c7}\label{class_graph_ac6c8ef3f68bab7aa3c826b6f755396c7}} 
+\index{Graph@{Graph}!MST@{MST}}
+\index{MST@{MST}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{MST()}{MST()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Graph\+::\+MST (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a minimum spanning tree for the graph. This function constructs a minimum spanning tree for the graph. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a716e0acd93275a00a011bfa5f6c624d0}\label{class_graph_a716e0acd93275a00a011bfa5f6c624d0}} 
+\index{Graph@{Graph}!nearestNeighbor@{nearestNeighbor}}
+\index{nearestNeighbor@{nearestNeighbor}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{nearestNeighbor()}{nearestNeighbor()}}
+{\footnotesize\ttfamily void Graph\+::nearest\+Neighbor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{graph }\end{DoxyParamCaption})}
+
+
+
+This function calculates the best path using the nearest neighbor algorithm. This function calculates the total distance of a route using the nearest neighbor algorithm. 
+
+\begin{DoxyNote}{Note}
+complexity\+: O(\+V$^\wedge$2) V is the number of vertices in the graph; 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_aa62e7d089926d34b8cac9b7cd3ccd88b}\label{class_graph_aa62e7d089926d34b8cac9b7cd3ccd88b}} 
+\index{Graph@{Graph}!removeDuplicates@{removeDuplicates}}
+\index{removeDuplicates@{removeDuplicates}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeDuplicates()}{removeDuplicates()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Graph\+::remove\+Duplicates (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{eulerian\+Circuit }\end{DoxyParamCaption})}
+
+
+
+Remove duplicate vertices from the Eulerian circuit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em eulerian\+Circuit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a961b73cac0c31b9f472b9441a713d1f2}\label{class_graph_a961b73cac0c31b9f472b9441a713d1f2}} 
+\index{Graph@{Graph}!simulatedAnnealing@{simulatedAnnealing}}
+\index{simulatedAnnealing@{simulatedAnnealing}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{simulatedAnnealing()}{simulatedAnnealing()}}
+{\footnotesize\ttfamily void Graph\+::simulated\+Annealing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{graph,  }\item[{int}]{max\+Iterations,  }\item[{double}]{initial\+Temperature,  }\item[{double}]{cooling\+Rate }\end{DoxyParamCaption})}
+
+
+
+Perform the Simulated Annealing algorithm on the graph. This function applies the Simulated Annealing algorithm to find an optimal solution for the given graph. It starts with an initial solution and iteratively explores neighboring solutions by accepting or rejecting them based on a probability. The algorithm aims to converge towards the global optimum by gradually decreasing the acceptance probability with each iteration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & The graph on which to perform the Simulated Annealing algorithm. \\
+\hline
+{\em max\+Iterations} & The maximum number of iterations to perform. \\
+\hline
+{\em initial\+Temperature} & The initial temperature for the annealing process. \\
+\hline
+{\em cooling\+Rate} & The cooling rate for the annealing process. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a5a800d17f2cb4a6780513838aaf93c0d}\label{class_graph_a5a800d17f2cb4a6780513838aaf93c0d}} 
+\index{Graph@{Graph}!tabuSearch@{tabuSearch}}
+\index{tabuSearch@{tabuSearch}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{tabuSearch()}{tabuSearch()}}
+{\footnotesize\ttfamily void Graph\+::tabu\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{graph,  }\item[{int}]{max\+Iterations,  }\item[{int}]{tabu\+List\+Size,  }\item[{int}]{max\+Iterations\+Without\+Improvement }\end{DoxyParamCaption})}
+
+
+
+Perform Tabu Search algorithm to find an improved solution. This function implements the Tabu Search algorithm to find an improved solution for a given graph. It iteratively generates neighboring solutions and evaluates their costs. The algorithm maintains a tabu list to prevent revisiting previously visited solutions. If a better neighbor solution is found and it is not in the tabu list, it becomes the current solution. The algorithm stops when either the maximum number of iterations is reached or no improvement is made for a certain number of iterations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & A reference to the graph on which to perform Tabu Search. \\
+\hline
+{\em max\+Iterations} & The maximum number of iterations to perform. \\
+\hline
+{\em tabu\+List\+Size} & The size of the tabu list. \\
+\hline
+{\em max\+Iterations\+Without\+Improvement} & The maximum number of iterations without improvement to stop the algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The complexity of this function depends on the size of the tabu list, the number of iterations. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_graph_a74ac3915ab78762e537d45657e30429b}\label{class_graph_a74ac3915ab78762e537d45657e30429b}} 
+\index{Graph@{Graph}!triangularApproximation@{triangularApproximation}}
+\index{triangularApproximation@{triangularApproximation}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{triangularApproximation()}{triangularApproximation()}}
+{\footnotesize\ttfamily double Graph\+::triangular\+Approximation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function calculates the total distance of a route using the triangular approximation algorithm. This function calculates the total distance of a route using the triangular approximation algorithm. 
+
+\begin{DoxyNote}{Note}
+complexity\+: O(\+E log V) E is the number of edges in the graph and V is the number of vertices in the graph; 
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graph_a9f00b32afb4745db9d4d415003500579}\label{class_graph_a9f00b32afb4745db9d4d415003500579}} 
+\index{Graph@{Graph}!bestCost@{bestCost}}
+\index{bestCost@{bestCost}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{bestCost}{bestCost}}
+{\footnotesize\ttfamily double Graph\+::best\+Cost = std\+::numeric\+\_\+limits$<$double$>$\+::max()\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_ad4e099ad9b42cb93771db6b434bc6693}\label{class_graph_ad4e099ad9b42cb93771db6b434bc6693}} 
+\index{Graph@{Graph}!bestPath@{bestPath}}
+\index{bestPath@{bestPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{bestPath}{bestPath}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Graph\+::best\+Path\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_a9e61864da69191c1896a25a708d1a02d}\label{class_graph_a9e61864da69191c1896a25a708d1a02d}} 
+\index{Graph@{Graph}!distMatrix@{distMatrix}}
+\index{distMatrix@{distMatrix}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{distMatrix}{distMatrix}}
+{\footnotesize\ttfamily double$\ast$$\ast$ Graph\+::dist\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}\label{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}} 
+\index{Graph@{Graph}!pathMatrix@{pathMatrix}}
+\index{pathMatrix@{pathMatrix}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{pathMatrix}{pathMatrix}}
+{\footnotesize\ttfamily int$\ast$$\ast$ Graph\+::path\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}\label{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}} 
+\index{Graph@{Graph}!vertexSet@{vertexSet}}
+\index{vertexSet@{vertexSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{vertexSet}{vertexSet}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$$>$ Graph\+::vertex\+Set\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/data\+\_\+structures/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\item 
+src/data\+\_\+structures/\mbox{\hyperlink{_graph_8cpp}{Graph.\+cpp}}\end{DoxyCompactItemize}

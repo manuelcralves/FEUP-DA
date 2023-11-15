@@ -1,0 +1,191 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}Graph.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_ade64b529d481df36d56216e570ab4d08}{interface}} ()
+\begin{DoxyCompactList}\small\item\em Interface menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ab83028b2196e70669044f8fee52b0887}{toy\+\_\+graphs\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Menu for the toy graphs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ac739dbb91e33bc000a4b52cdf6aaac5d}{real\+\_\+world\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Reads a graph from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a6c978d3763f90f30ef8e87f267d2f2d3}{extra\+\_\+fully\+\_\+connected\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Menu for the extra fully connected graphs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_add7168ba14511f664b4b99828f97dc7b}{Backtrack\+Algorithm}} (\mbox{\hyperlink{class_graph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Executes the Backtrack\+Algorithm on a given graph. This function performs the Backtrack\+Algorithm on the given graph, starting from the initial vertex. It measures the execution time and outputs the best path, best cost, graph size, and execution time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ac0c25e03e2c57e060dbaac0cd8a52b32}{triangular\+Approximation}} (\mbox{\hyperlink{class_graph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Executes the Tabu\+Search algorithm on a given graph. Executes the Nearest\+Neighbor\+Algorithm on a given graph This function performs the Nearest\+Neighbor\+Algorithm on the given graph. It measures the execution time and outputs the minimum distance found by the algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_acaca0a11ff4c3fe02f24bcfd07a7e8c4}{Nearest\+Neighbor}} (\mbox{\hyperlink{class_graph}{Graph}} \&g)
+\item 
+void \mbox{\hyperlink{main_8cpp_aa83a0074ed42eb63a4abafab3dafe49a}{Tabu\+Search}} (\mbox{\hyperlink{class_graph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Executes the Nearest\+Neighbor\+Algorithm on a given graph. This function performs the Nearest\+Neighbor\+Algorithm on the given graph. It measures the execution time and outputs the minimum distance found by the algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a93dabc083da3473793c5c5dd89d99abe}{Simulated\+Annealing}} (\mbox{\hyperlink{class_graph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Executes the Simulated\+Annealing algorithm on a given graph. This function performs the Simulated\+Annealing algorithm on the given graph. It measures the execution time and outputs the best path found by the algorithm, along with its corresponding cost and the graph size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a5bdcaaa112759c9da455e75b8f1ce80b}{Christofides}} (\mbox{\hyperlink{class_graph}{Graph}} \&g)
+\begin{DoxyCompactList}\small\item\em Executes the Christofides algorithm on a given graph. This function performs the Christofides algorithm on the given graph. It measures the execution time and outputs the best path found by the algorithm, along with its corresponding cost and the graph size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}} \mbox{\hyperlink{main_8cpp_a4060009f785d6282c7012122ca48c7ad}{read\+Graph}} (std\+::string dataset)
+\begin{DoxyCompactList}\small\item\em Reads a graph from a dataset file and returns the constructed graph. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_add7168ba14511f664b4b99828f97dc7b}\label{main_8cpp_add7168ba14511f664b4b99828f97dc7b}} 
+\index{main.cpp@{main.cpp}!BacktrackAlgorithm@{BacktrackAlgorithm}}
+\index{BacktrackAlgorithm@{BacktrackAlgorithm}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{BacktrackAlgorithm()}{BacktrackAlgorithm()}}
+{\footnotesize\ttfamily void Backtrack\+Algorithm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{g }\end{DoxyParamCaption})}
+
+
+
+Executes the Backtrack\+Algorithm on a given graph. This function performs the Backtrack\+Algorithm on the given graph, starting from the initial vertex. It measures the execution time and outputs the best path, best cost, graph size, and execution time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & The graph on which to perform the Backtrack\+Algorithm. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a5bdcaaa112759c9da455e75b8f1ce80b}\label{main_8cpp_a5bdcaaa112759c9da455e75b8f1ce80b}} 
+\index{main.cpp@{main.cpp}!Christofides@{Christofides}}
+\index{Christofides@{Christofides}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{Christofides()}{Christofides()}}
+{\footnotesize\ttfamily void Christofides (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{g }\end{DoxyParamCaption})}
+
+
+
+Executes the Christofides algorithm on a given graph. This function performs the Christofides algorithm on the given graph. It measures the execution time and outputs the best path found by the algorithm, along with its corresponding cost and the graph size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a6c978d3763f90f30ef8e87f267d2f2d3}\label{main_8cpp_a6c978d3763f90f30ef8e87f267d2f2d3}} 
+\index{main.cpp@{main.cpp}!extra\_fully\_connected\_menu@{extra\_fully\_connected\_menu}}
+\index{extra\_fully\_connected\_menu@{extra\_fully\_connected\_menu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{extra\_fully\_connected\_menu()}{extra\_fully\_connected\_menu()}}
+{\footnotesize\ttfamily void extra\+\_\+fully\+\_\+connected\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Menu for the extra fully connected graphs. 
+
+This menu allows the user to choose the number of edges of the graph \mbox{\Hypertarget{main_8cpp_ade64b529d481df36d56216e570ab4d08}\label{main_8cpp_ade64b529d481df36d56216e570ab4d08}} 
+\index{main.cpp@{main.cpp}!interface@{interface}}
+\index{interface@{interface}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{interface()}{interface()}}
+{\footnotesize\ttfamily void interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interface menu. 
+
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_acaca0a11ff4c3fe02f24bcfd07a7e8c4}\label{main_8cpp_acaca0a11ff4c3fe02f24bcfd07a7e8c4}} 
+\index{main.cpp@{main.cpp}!NearestNeighbor@{NearestNeighbor}}
+\index{NearestNeighbor@{NearestNeighbor}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{NearestNeighbor()}{NearestNeighbor()}}
+{\footnotesize\ttfamily void Nearest\+Neighbor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{g }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a4060009f785d6282c7012122ca48c7ad}\label{main_8cpp_a4060009f785d6282c7012122ca48c7ad}} 
+\index{main.cpp@{main.cpp}!readGraph@{readGraph}}
+\index{readGraph@{readGraph}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readGraph()}{readGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}} read\+Graph (\begin{DoxyParamCaption}\item[{std\+::string}]{dataset }\end{DoxyParamCaption})}
+
+
+
+Reads a graph from a dataset file and returns the constructed graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The path to the dataset file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The constructed graph. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_ac739dbb91e33bc000a4b52cdf6aaac5d}\label{main_8cpp_ac739dbb91e33bc000a4b52cdf6aaac5d}} 
+\index{main.cpp@{main.cpp}!real\_world\_menu@{real\_world\_menu}}
+\index{real\_world\_menu@{real\_world\_menu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{real\_world\_menu()}{real\_world\_menu()}}
+{\footnotesize\ttfamily void real\+\_\+world\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads a graph from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dataset} & The path to the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The graph read. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{main_8cpp_a93dabc083da3473793c5c5dd89d99abe}\label{main_8cpp_a93dabc083da3473793c5c5dd89d99abe}} 
+\index{main.cpp@{main.cpp}!SimulatedAnnealing@{SimulatedAnnealing}}
+\index{SimulatedAnnealing@{SimulatedAnnealing}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{SimulatedAnnealing()}{SimulatedAnnealing()}}
+{\footnotesize\ttfamily void Simulated\+Annealing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{g }\end{DoxyParamCaption})}
+
+
+
+Executes the Simulated\+Annealing algorithm on a given graph. This function performs the Simulated\+Annealing algorithm on the given graph. It measures the execution time and outputs the best path found by the algorithm, along with its corresponding cost and the graph size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_aa83a0074ed42eb63a4abafab3dafe49a}\label{main_8cpp_aa83a0074ed42eb63a4abafab3dafe49a}} 
+\index{main.cpp@{main.cpp}!TabuSearch@{TabuSearch}}
+\index{TabuSearch@{TabuSearch}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{TabuSearch()}{TabuSearch()}}
+{\footnotesize\ttfamily void Tabu\+Search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{g }\end{DoxyParamCaption})}
+
+
+
+Executes the Nearest\+Neighbor\+Algorithm on a given graph. This function performs the Nearest\+Neighbor\+Algorithm on the given graph. It measures the execution time and outputs the minimum distance found by the algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to the graph on which to perform the Nearest\+Neighbor\+Algorithm \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_ab83028b2196e70669044f8fee52b0887}\label{main_8cpp_ab83028b2196e70669044f8fee52b0887}} 
+\index{main.cpp@{main.cpp}!toy\_graphs\_menu@{toy\_graphs\_menu}}
+\index{toy\_graphs\_menu@{toy\_graphs\_menu}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{toy\_graphs\_menu()}{toy\_graphs\_menu()}}
+{\footnotesize\ttfamily void toy\+\_\+graphs\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Menu for the toy graphs. 
+
+\mbox{\Hypertarget{main_8cpp_ac0c25e03e2c57e060dbaac0cd8a52b32}\label{main_8cpp_ac0c25e03e2c57e060dbaac0cd8a52b32}} 
+\index{main.cpp@{main.cpp}!triangularApproximation@{triangularApproximation}}
+\index{triangularApproximation@{triangularApproximation}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{triangularApproximation()}{triangularApproximation()}}
+{\footnotesize\ttfamily void triangular\+Approximation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{g }\end{DoxyParamCaption})}
+
+
+
+Executes the Tabu\+Search algorithm on a given graph. Executes the Nearest\+Neighbor\+Algorithm on a given graph This function performs the Nearest\+Neighbor\+Algorithm on the given graph. It measures the execution time and outputs the minimum distance found by the algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & A pointer to the graph on which to perform the Nearest\+Neighbor\+Algorithm \\
+\hline
+\end{DoxyParams}

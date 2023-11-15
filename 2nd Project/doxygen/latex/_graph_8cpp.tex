@@ -1,0 +1,82 @@
+\hypertarget{_graph_8cpp}{}\doxysection{src/data\+\_\+structures/\+Graph.cpp File Reference}
+\label{_graph_8cpp}\index{src/data\_structures/Graph.cpp@{src/data\_structures/Graph.cpp}}
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include \char`\"{}Graph.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_graph_8cpp_acd2968f06cc08fa3215ce031e1a55fe0}{calculate\+Haversine\+Distance}} (double lat1, double lon1, double lat2, double lon2)
+\begin{DoxyCompactList}\small\item\em Calculates the Haversine distance between two coordinates. This function calculates the Haversine distance between two coordinates on the Earth\textquotesingle{}s surface using their latitude and longitude values. The Haversine formula takes into account the Earth\textquotesingle{}s spherical shape and provides an approximation of the distance between two points. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_graph_8cpp_ab31d70bab597057c734d41d229a936f9}{calculate\+Diversity}} (const std\+::vector$<$ int $>$ \&solution1, const std\+::vector$<$ int $>$ \&solution2)
+\begin{DoxyCompactList}\small\item\em Calculate diversity between two solutions. This function calculates the diversity between two solutions by comparing their elements at each position. The diversity is defined as the number of positions where the elements of the two solutions differ. The size of the solutions should be the same for accurate comparison. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graph_8cpp_ad56527992afe31a371065e795da57d25}{delete\+Matrix}} (int $\ast$$\ast$m, int n)
+\item 
+void \mbox{\hyperlink{_graph_8cpp_af077bc8682a1a1d97e30b08eb1131b19}{delete\+Matrix}} (double $\ast$$\ast$m, int n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_graph_8cpp_ab31d70bab597057c734d41d229a936f9}\label{_graph_8cpp_ab31d70bab597057c734d41d229a936f9}} 
+\index{Graph.cpp@{Graph.cpp}!calculateDiversity@{calculateDiversity}}
+\index{calculateDiversity@{calculateDiversity}!Graph.cpp@{Graph.cpp}}
+\doxysubsubsection{\texorpdfstring{calculateDiversity()}{calculateDiversity()}}
+{\footnotesize\ttfamily double calculate\+Diversity (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{solution1,  }\item[{const std\+::vector$<$ int $>$ \&}]{solution2 }\end{DoxyParamCaption})}
+
+
+
+Calculate diversity between two solutions. This function calculates the diversity between two solutions by comparing their elements at each position. The diversity is defined as the number of positions where the elements of the two solutions differ. The size of the solutions should be the same for accurate comparison. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em solution1} & \\
+\hline
+{\em solution2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The diversity between the two solutions. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_graph_8cpp_acd2968f06cc08fa3215ce031e1a55fe0}\label{_graph_8cpp_acd2968f06cc08fa3215ce031e1a55fe0}} 
+\index{Graph.cpp@{Graph.cpp}!calculateHaversineDistance@{calculateHaversineDistance}}
+\index{calculateHaversineDistance@{calculateHaversineDistance}!Graph.cpp@{Graph.cpp}}
+\doxysubsubsection{\texorpdfstring{calculateHaversineDistance()}{calculateHaversineDistance()}}
+{\footnotesize\ttfamily double calculate\+Haversine\+Distance (\begin{DoxyParamCaption}\item[{double}]{lat1,  }\item[{double}]{lon1,  }\item[{double}]{lat2,  }\item[{double}]{lon2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the Haversine distance between two coordinates. This function calculates the Haversine distance between two coordinates on the Earth\textquotesingle{}s surface using their latitude and longitude values. The Haversine formula takes into account the Earth\textquotesingle{}s spherical shape and provides an approximation of the distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lat1} & The latitude of the first coordinate. \\
+\hline
+{\em lon1} & The longitude of the first coordinate. \\
+\hline
+{\em lat2} & The latitude of the second coordinate. \\
+\hline
+{\em lon2} & The longitude of the second coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Haversine distance between the two coordinates in meters. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The Haversine distance is calculated using the Earth\textquotesingle{}s radius of approximately 6,371,000 meters. If all input coordinates are equal to zero (lat1=0, lon1=0, lat2=0, lon2=0), the function returns 0.\+0, indicating no distance between the coordinates. 
+
+The complexity of this function is constant, O(1), as it performs a fixed number of arithmetic operations. However, it is important to note that this calculation assumes a spherical Earth model and may not be entirely accurate in all cases, especially over long distances or near the poles. 
+\end{DoxyNote}
+\mbox{\Hypertarget{_graph_8cpp_af077bc8682a1a1d97e30b08eb1131b19}\label{_graph_8cpp_af077bc8682a1a1d97e30b08eb1131b19}} 
+\index{Graph.cpp@{Graph.cpp}!deleteMatrix@{deleteMatrix}}
+\index{deleteMatrix@{deleteMatrix}!Graph.cpp@{Graph.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteMatrix()}{deleteMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void delete\+Matrix (\begin{DoxyParamCaption}\item[{double $\ast$$\ast$}]{m,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_graph_8cpp_ad56527992afe31a371065e795da57d25}\label{_graph_8cpp_ad56527992afe31a371065e795da57d25}} 
+\index{Graph.cpp@{Graph.cpp}!deleteMatrix@{deleteMatrix}}
+\index{deleteMatrix@{deleteMatrix}!Graph.cpp@{Graph.cpp}}
+\doxysubsubsection{\texorpdfstring{deleteMatrix()}{deleteMatrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void delete\+Matrix (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{m,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
