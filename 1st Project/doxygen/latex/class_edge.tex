@@ -1,0 +1,289 @@
+\hypertarget{class_edge}{}\doxysection{Edge Class Reference}
+\label{class_edge}\index{Edge@{Edge}}
+
+
+{\ttfamily \#include $<$Vertex\+Edge.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_a7c1ccdc28a63e7d1ff2374138e72239f}{Edge}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$\mbox{\hyperlink{class_edge_a48f1521d20ead8492fd1d184656862f5}{orig}}, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$\mbox{\hyperlink{class_edge_a50339c1a85710ca827d4e3865727ffd7}{dest}}, double w, std\+::string \mbox{\hyperlink{class_edge_ac69547757f15cdacca2f576b8a9acbb5}{service}})
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_edge}{Edge}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_edge_a5cda44e9ba257b03963a1ac301371a59}{get\+Dest}} () const
+\begin{DoxyCompactList}\small\item\em Gets the destination vertex of the edge. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_edge_a1caaffca117bab3ff5b7387623a356f8}{get\+Weight}} () const
+\begin{DoxyCompactList}\small\item\em Gets the weight of the edge. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_edge_a3d7bb7de5df17d60102ade05d59e06fc}{get\+Service}} () const
+\begin{DoxyCompactList}\small\item\em Gets the service associated with the edge. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_edge_a6e8b08e91c0694b40edff0432fb612eb}{get\+Orig}} () const
+\begin{DoxyCompactList}\small\item\em Gets the origin vertex of the edge. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_edge}{Edge}} $\ast$ \mbox{\hyperlink{class_edge_a756d2d246aa5445d0f396626c7d4fd56}{get\+Reverse}} () const
+\begin{DoxyCompactList}\small\item\em Gets the reverse edge associated with this edge. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_edge_a30ff9f3127097db8dce20f5e8b15e6dc}{get\+Flow}} () const
+\begin{DoxyCompactList}\small\item\em Gets the flow of the edge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a64881280015bd83702fe3b2c6234b7e5}{set\+Reverse}} (\mbox{\hyperlink{class_edge}{Edge}} $\ast$\mbox{\hyperlink{class_edge_abcadfaa8985d0d593a124d0fea39130a}{reverse}})
+\begin{DoxyCompactList}\small\item\em Sets the reverse edge associated with this edge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a788cfe1f98772af4e7bbfe6310d0ccaa}{set\+Flow}} (double \mbox{\hyperlink{class_edge_adbe59333b5a49cbb85b39ce1272e6098}{flow}})
+\begin{DoxyCompactList}\small\item\em Sets the flow of the edge. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_edge_a50339c1a85710ca827d4e3865727ffd7}{dest}}
+\item 
+double \mbox{\hyperlink{class_edge_a6d0148402e635354c03a151c77fcbdd8}{weight}}
+\item 
+std\+::string \mbox{\hyperlink{class_edge_ac69547757f15cdacca2f576b8a9acbb5}{service}}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_edge_a48f1521d20ead8492fd1d184656862f5}{orig}}
+\item 
+\mbox{\hyperlink{class_edge}{Edge}} $\ast$ \mbox{\hyperlink{class_edge_abcadfaa8985d0d593a124d0fea39130a}{reverse}} = nullptr
+\item 
+double \mbox{\hyperlink{class_edge_adbe59333b5a49cbb85b39ce1272e6098}{flow}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8h_source_l00138}{138}} of file \mbox{\hyperlink{_vertex_edge_8h_source}{Vertex\+Edge.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_edge_a7c1ccdc28a63e7d1ff2374138e72239f}\label{class_edge_a7c1ccdc28a63e7d1ff2374138e72239f}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{orig,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{dest,  }\item[{double}]{w,  }\item[{std\+::string}]{service }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{class_edge}{Edge}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & Pointer to the origin vertex of the edge. \\
+\hline
+{\em dest} & Pointer to the destination vertex of the edge. \\
+\hline
+{\em w} & Weight of the edge. \\
+\hline
+{\em service} & The service associated with the edge. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_edge_a5cda44e9ba257b03963a1ac301371a59}\label{class_edge_a5cda44e9ba257b03963a1ac301371a59}} 
+\index{Edge@{Edge}!getDest@{getDest}}
+\index{getDest@{getDest}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getDest()}{getDest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Edge\+::get\+Dest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the destination vertex of the edge. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the destination vertex of the edge. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+\mbox{\Hypertarget{class_edge_a30ff9f3127097db8dce20f5e8b15e6dc}\label{class_edge_a30ff9f3127097db8dce20f5e8b15e6dc}} 
+\index{Edge@{Edge}!getFlow@{getFlow}}
+\index{getFlow@{getFlow}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getFlow()}{getFlow()}}
+{\footnotesize\ttfamily double Edge\+::get\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the flow of the edge. 
+
+\begin{DoxyReturn}{Returns}
+The flow of the edge. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+\mbox{\Hypertarget{class_edge_a6e8b08e91c0694b40edff0432fb612eb}\label{class_edge_a6e8b08e91c0694b40edff0432fb612eb}} 
+\index{Edge@{Edge}!getOrig@{getOrig}}
+\index{getOrig@{getOrig}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getOrig()}{getOrig()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Edge\+::get\+Orig (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the origin vertex of the edge. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the origin vertex of the edge. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00094}{94}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+\mbox{\Hypertarget{class_edge_a756d2d246aa5445d0f396626c7d4fd56}\label{class_edge_a756d2d246aa5445d0f396626c7d4fd56}} 
+\index{Edge@{Edge}!getReverse@{getReverse}}
+\index{getReverse@{getReverse}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getReverse()}{getReverse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{Edge}} $\ast$ Edge\+::get\+Reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the reverse edge associated with this edge. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to the reverse edge associated with this edge. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00098}{98}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+\mbox{\Hypertarget{class_edge_a3d7bb7de5df17d60102ade05d59e06fc}\label{class_edge_a3d7bb7de5df17d60102ade05d59e06fc}} 
+\index{Edge@{Edge}!getService@{getService}}
+\index{getService@{getService}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getService()}{getService()}}
+{\footnotesize\ttfamily std\+::string Edge\+::get\+Service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the service associated with the edge. 
+
+\begin{DoxyReturn}{Returns}
+The service associated with the edge. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+\mbox{\Hypertarget{class_edge_a1caaffca117bab3ff5b7387623a356f8}\label{class_edge_a1caaffca117bab3ff5b7387623a356f8}} 
+\index{Edge@{Edge}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily double Edge\+::get\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the weight of the edge. 
+
+\begin{DoxyReturn}{Returns}
+The weight of the edge. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00086}{86}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+\mbox{\Hypertarget{class_edge_a788cfe1f98772af4e7bbfe6310d0ccaa}\label{class_edge_a788cfe1f98772af4e7bbfe6310d0ccaa}} 
+\index{Edge@{Edge}!setFlow@{setFlow}}
+\index{setFlow@{setFlow}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{setFlow()}{setFlow()}}
+{\footnotesize\ttfamily void Edge\+::set\+Flow (\begin{DoxyParamCaption}\item[{double}]{flow }\end{DoxyParamCaption})}
+
+
+
+Sets the flow of the edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flow} & The flow to be set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+\mbox{\Hypertarget{class_edge_a64881280015bd83702fe3b2c6234b7e5}\label{class_edge_a64881280015bd83702fe3b2c6234b7e5}} 
+\index{Edge@{Edge}!setReverse@{setReverse}}
+\index{setReverse@{setReverse}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{setReverse()}{setReverse()}}
+{\footnotesize\ttfamily void Edge\+::set\+Reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{reverse }\end{DoxyParamCaption})}
+
+
+
+Sets the reverse edge associated with this edge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reverse} & Pointer to the reverse edge to be set. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8cpp_source_l00106}{106}} of file \mbox{\hyperlink{_vertex_edge_8cpp_source}{Vertex\+Edge.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_edge_a50339c1a85710ca827d4e3865727ffd7}\label{class_edge_a50339c1a85710ca827d4e3865727ffd7}} 
+\index{Edge@{Edge}!dest@{dest}}
+\index{dest@{dest}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{dest}{dest}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}}$\ast$ Edge\+::dest\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8h_source_l00206}{206}} of file \mbox{\hyperlink{_vertex_edge_8h_source}{Vertex\+Edge.\+h}}.
+
+\mbox{\Hypertarget{class_edge_adbe59333b5a49cbb85b39ce1272e6098}\label{class_edge_adbe59333b5a49cbb85b39ce1272e6098}} 
+\index{Edge@{Edge}!flow@{flow}}
+\index{flow@{flow}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{flow}{flow}}
+{\footnotesize\ttfamily double Edge\+::flow = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8h_source_l00211}{211}} of file \mbox{\hyperlink{_vertex_edge_8h_source}{Vertex\+Edge.\+h}}.
+
+\mbox{\Hypertarget{class_edge_a48f1521d20ead8492fd1d184656862f5}\label{class_edge_a48f1521d20ead8492fd1d184656862f5}} 
+\index{Edge@{Edge}!orig@{orig}}
+\index{orig@{orig}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{orig}{orig}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}}$\ast$ Edge\+::orig\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8h_source_l00209}{209}} of file \mbox{\hyperlink{_vertex_edge_8h_source}{Vertex\+Edge.\+h}}.
+
+\mbox{\Hypertarget{class_edge_abcadfaa8985d0d593a124d0fea39130a}\label{class_edge_abcadfaa8985d0d593a124d0fea39130a}} 
+\index{Edge@{Edge}!reverse@{reverse}}
+\index{reverse@{reverse}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{reverse}{reverse}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_edge}{Edge}}$\ast$ Edge\+::reverse = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8h_source_l00210}{210}} of file \mbox{\hyperlink{_vertex_edge_8h_source}{Vertex\+Edge.\+h}}.
+
+\mbox{\Hypertarget{class_edge_ac69547757f15cdacca2f576b8a9acbb5}\label{class_edge_ac69547757f15cdacca2f576b8a9acbb5}} 
+\index{Edge@{Edge}!service@{service}}
+\index{service@{service}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{service}{service}}
+{\footnotesize\ttfamily std\+::string Edge\+::service\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8h_source_l00208}{208}} of file \mbox{\hyperlink{_vertex_edge_8h_source}{Vertex\+Edge.\+h}}.
+
+\mbox{\Hypertarget{class_edge_a6d0148402e635354c03a151c77fcbdd8}\label{class_edge_a6d0148402e635354c03a151c77fcbdd8}} 
+\index{Edge@{Edge}!weight@{weight}}
+\index{weight@{weight}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{weight}{weight}}
+{\footnotesize\ttfamily double Edge\+::weight\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_vertex_edge_8h_source_l00207}{207}} of file \mbox{\hyperlink{_vertex_edge_8h_source}{Vertex\+Edge.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/data\+\_\+structures/\mbox{\hyperlink{_vertex_edge_8h}{Vertex\+Edge.\+h}}\item 
+src/data\+\_\+structures/\mbox{\hyperlink{_vertex_edge_8cpp}{Vertex\+Edge.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,508 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include \char`\"{}data\+\_\+structures/\+Graph.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{main_8cpp_ac20012e26995060505933cde0447fdd7}{parse\+\_\+csv\+\_\+line}} (const std\+::string \&line)
+\begin{DoxyCompactList}\small\item\em Parses a line of CSV (Comma-\/\+Separated Values) and returns a vector of fields. This function takes a line of text in CSV format and splits it into fields using commas as delimiters. Fields enclosed in double quotes are treated as a single field, even if they contain commas. The resulting fields are stored in a vector of strings. \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ string, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{main_8cpp_a5c40bd6285e30820d5fb8d8789c1b098}{read\+Stations}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Reads station information from a CSV file and stores it in an unordered map. This function reads station information from a CSV file, where each line represents a station with various attributes separated by commas. The information is parsed using the \mbox{\hyperlink{main_8cpp_ac20012e26995060505933cde0447fdd7}{parse\+\_\+csv\+\_\+line()}} function, and a new \mbox{\hyperlink{class_vertex}{Vertex}} object is created for each station using the parsed fields. The \mbox{\hyperlink{class_vertex}{Vertex}} objects are added to a \mbox{\hyperlink{class_graph}{Graph}} object, and the station names are used as keys in an unordered map to store the corresponding \mbox{\hyperlink{class_vertex}{Vertex}} pointers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a0dbfd2cfa1fdebc9167f57ac8e12e434}{read\+Network}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway, unordered\+\_\+map$<$ string, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ stations)
+\begin{DoxyCompactList}\small\item\em Reads network information from a CSV file and updates a \mbox{\hyperlink{class_graph}{Graph}} object. This function reads network information from a CSV file, where each line represents a connection between two stations with various attributes separated by commas. The information is parsed using the \mbox{\hyperlink{main_8cpp_ac20012e26995060505933cde0447fdd7}{parse\+\_\+csv\+\_\+line()}} function, and the corresponding \mbox{\hyperlink{class_vertex}{Vertex}} pointers are retrieved from the provided unordered map of stations. The railway \mbox{\hyperlink{class_graph}{Graph}} object is then updated with bidirectional edges between the stations using the add\+Bidirectional\+Edge() function, with the parsed attributes such as weight and edge label. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aa1939b5a4a23f2fd3f28551a7ff725b2}{read}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Reads railway information from CSV files and updates a \mbox{\hyperlink{class_graph}{Graph}} object. This function reads railway information from two CSV files\+: stations.\+csv and network.\+csv. The stations.\+csv file contains station information, which is read using the \mbox{\hyperlink{main_8cpp_a5c40bd6285e30820d5fb8d8789c1b098}{read\+Stations()}} function to populate an unordered map with station names as keys and \mbox{\hyperlink{class_vertex}{Vertex}} pointers as values. The network.\+csv file contains network information, which is read using the \mbox{\hyperlink{main_8cpp_a0dbfd2cfa1fdebc9167f57ac8e12e434}{read\+Network()}} function to update the \mbox{\hyperlink{class_graph}{Graph}} object with bidirectional edges between stations based on the station map obtained from \mbox{\hyperlink{main_8cpp_a5c40bd6285e30820d5fb8d8789c1b098}{read\+Stations()}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{main_8cpp_ae114402937c63ca193e45434292c2b03}{bfs}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$source, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$destination, \mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Performs Breadth-\/\+First Search (BFS) algorithm to find a path from source to destination in a \mbox{\hyperlink{class_graph}{Graph}}. This function implements the Breadth-\/\+First Search (BFS) algorithm to find a path from a given source \mbox{\hyperlink{class_vertex}{Vertex}} to a destination \mbox{\hyperlink{class_vertex}{Vertex}} in a \mbox{\hyperlink{class_graph}{Graph}}. It uses a queue data structure to explore the \mbox{\hyperlink{class_graph}{Graph}} in breadth-\/first order, starting from the source \mbox{\hyperlink{class_vertex}{Vertex}}. The \mbox{\hyperlink{class_graph}{Graph}} is assumed to have already been populated with \mbox{\hyperlink{class_vertex}{Vertex}} and \mbox{\hyperlink{class_edge}{Edge}} objects, and their visited and path states are updated during the BFS traversal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a7562b84480c1e78e800b3d203e67f4a7}{create\+Reduced\+Graph}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Creates a reduced subgraph of the \mbox{\hyperlink{class_graph}{Graph}} by removing stations and connections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a769323a443dc750b6a9547688697baa4}{print\+Edge\+Info}} (const \mbox{\hyperlink{class_edge}{Edge}} $\ast$edge)
+\begin{DoxyCompactList}\small\item\em Prints information about an \mbox{\hyperlink{class_edge}{Edge}} object. This function generates a string representation of the \mbox{\hyperlink{class_edge}{Edge}} object, including its origin and destination station names, capacity, and service information. The generated string is formatted with a delimiter of a certain column size, and each field is displayed in a separate line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a7167f5c196fc5e167bfabde1a730e81d}{pause}} ()
+\begin{DoxyCompactList}\small\item\em Pauses program execution and waits for user input to continue. This function displays a prompt message to the user to press ENTER to continue, and then waits for the user to press ENTER before continuing with the program execution. It uses the std\+::cin.\+ignore() function to discard any remaining input in the input stream, allowing the program to wait for user input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a689bd27a3ef02e8a0c3480448483ce25}{interface}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Displays the interface menu for a Railway Management System and handles user input. This function displays a menu with options for different functionalities of a Railway Management System. It prompts the user to enter their choice, validates the input, and calls the corresponding function based on the user\textquotesingle{}s choice. If the user enters an invalid option, they are prompted to enter a valid option until a valid choice is made. The function uses a switch statement to execute the appropriate functionality based on the user\textquotesingle{}s input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aef42121745b25f5e7ebe158162838e84}{basic\+Service\+Metrics}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Provides basic service metrics for a Railway Management System. This function displays a menu with options for various basic service metrics of a Railway Management System. It prompts the user to enter their choice, validates the input, and calls the corresponding function based on the user\textquotesingle{}s choice. If the user enters an invalid option, they are prompted to enter a valid option until a valid choice is made. The function uses a switch statement to execute the appropriate functionality based on the user\textquotesingle{}s input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a14a379ecf6bf716d2f258ea111c2262b}{max\+Trains\+Between\+Stations}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Calculates the maximum number of trains that can simultaneously travel between two specific stations in a railway network. This function prompts the user to enter the names of the source and destination stations. It then calls the Edmonds-\/\+Karp algorithm on the \mbox{\hyperlink{class_graph}{Graph}} object to find the maximum flow between the source and destination stations, which represents the maximum number of trains that can simultaneously travel between the two stations. The calculated result is displayed on the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a6e55989933c573d1834e12259a5eeb5c}{most\+Trains\+Required}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Determines which stations in a railway network require the most amount of trains. This function calls the Max\+Flow\+Between\+Pairs() function on the \mbox{\hyperlink{class_graph}{Graph}} object to calculate the maximum flow between all pairs of source and destination stations in the railway network. The maximum flow represents the maximum number of trains that can simultaneously travel between each pair of stations. The function then determines which stations require the most amount of trains based on the calculated maximum flows, and displays the results on the console. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a9acb5d6999a33786dce6c909175e09dd}{assign\+Budgets}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Assigns larger budgets for the purchasing and maintenance of trains in a railway network. This function calls the top\+Districts() and top\+Municipalities() functions on the \mbox{\hyperlink{class_graph}{Graph}} object to identify the top districts and municipalities in the railway network that require larger budgets for the purchasing and maintenance of trains. The top districts and municipalities are determined based on various metrics, such as passenger demand, train usage, and revenue generated. The function then displays the results on the console, indicating the districts and municipalities that require larger budgets for train operations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_acc2656041e9b46fc1d46b000971b0959}{max\+Trains\+At\+Station}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Reports the maximum number of trains that can simultaneously arrive at a given station in a railway network. This function takes a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network as input and prompts the user to enter the name of a station for which the maximum number of trains that can simultaneously arrive needs to be calculated. It then calls the \mbox{\hyperlink{main_8cpp_acc2656041e9b46fc1d46b000971b0959}{max\+Trains\+At\+Station()}} function on the \mbox{\hyperlink{class_graph}{Graph}} object, passing the station as an argument, to calculate and report the maximum number of trains that can simultaneously arrive at the given station based on the network\textquotesingle{}s capacity constraints. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8403be2ec4466e97871df886434da7a5}{operation\+Cost\+Optimization}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Performs operations cost optimization in a railway network. This function presents a menu of options to the user for operations cost optimization in a railway network. The user can choose to calculate the maximum amount of trains that can simultaneously travel between two specific stations with minimum cost. The function then calls the appropriate function based on the user\textquotesingle{}s choice to perform the operations cost optimization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aee14bab852c037519bbd43744f940edc}{min\+Cost\+Trains}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Calculates the maximum amount of trains that can simultaneously travel between two specific stations with minimum cost. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ae65beeb67c40162a92b3b5615ade4d07}{rand\+Sto\+Line\+Failures}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Generates a report on stations that are the most affected by each segment failure or calculates the maximum number of trains that can simultaneously travel between two specific stations in a network of reduced connectivity. This function presents a menu with three options\+: Calculate the maximum number of trains that can simultaneously travel between two specific stations in a network of reduced connectivity. Provide a report on the stations that are the most affected by each segment failure. Return to the previous menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_aa08dc3e838cc0f52b05fcd2b9fa1c032}{max\+Trains\+Reduced\+Connectivity}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Calculates the maximum number of trains that can simultaneously travel between two specific stations in a network of reduced connectivity. This function creates a reduced graph from the original railway network using the \mbox{\hyperlink{main_8cpp_a7562b84480c1e78e800b3d203e67f4a7}{create\+Reduced\+Graph()}} function, and then calculates the maximum number of trains that can simultaneously travel between two specific stations in the reduced graph using the \mbox{\hyperlink{main_8cpp_a14a379ecf6bf716d2f258ea111c2262b}{max\+Trains\+Between\+Stations()}} function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ab36057c34419337ad419f730307028f3}{most\+Affected\+Stations}} (\mbox{\hyperlink{class_graph}{Graph}} \&railway)
+\begin{DoxyCompactList}\small\item\em Provides a report on the stations that are the most affected by each segment failure in a railway network with reduced connectivity. This function creates a reduced graph from the original railway network using the \mbox{\hyperlink{main_8cpp_a7562b84480c1e78e800b3d203e67f4a7}{create\+Reduced\+Graph()}} function. Then, it identifies the most affected stations by each segment failure in the reduced graph using the Most\+Affect\+Stations() function. It displays the list of most affected stations, if any, and pauses for user input before returning. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a9acb5d6999a33786dce6c909175e09dd}\label{main_8cpp_a9acb5d6999a33786dce6c909175e09dd}} 
+\index{main.cpp@{main.cpp}!assignBudgets@{assignBudgets}}
+\index{assignBudgets@{assignBudgets}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{assignBudgets()}{assignBudgets()}}
+{\footnotesize\ttfamily void assign\+Budgets (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Assigns larger budgets for the purchasing and maintenance of trains in a railway network. This function calls the top\+Districts() and top\+Municipalities() functions on the \mbox{\hyperlink{class_graph}{Graph}} object to identify the top districts and municipalities in the railway network that require larger budgets for the purchasing and maintenance of trains. The top districts and municipalities are determined based on various metrics, such as passenger demand, train usage, and revenue generated. The function then displays the results on the console, indicating the districts and municipalities that require larger budgets for train operations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00478}{478}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_aef42121745b25f5e7ebe158162838e84}\label{main_8cpp_aef42121745b25f5e7ebe158162838e84}} 
+\index{main.cpp@{main.cpp}!basicServiceMetrics@{basicServiceMetrics}}
+\index{basicServiceMetrics@{basicServiceMetrics}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{basicServiceMetrics()}{basicServiceMetrics()}}
+{\footnotesize\ttfamily void basic\+Service\+Metrics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Provides basic service metrics for a Railway Management System. This function displays a menu with options for various basic service metrics of a Railway Management System. It prompts the user to enter their choice, validates the input, and calls the corresponding function based on the user\textquotesingle{}s choice. If the user enters an invalid option, they are prompted to enter a valid option until a valid choice is made. The function uses a switch statement to execute the appropriate functionality based on the user\textquotesingle{}s input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00357}{357}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ae114402937c63ca193e45434292c2b03}\label{main_8cpp_ae114402937c63ca193e45434292c2b03}} 
+\index{main.cpp@{main.cpp}!bfs@{bfs}}
+\index{bfs@{bfs}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}}
+{\footnotesize\ttfamily bool bfs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{source,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{destination,  }\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Performs Breadth-\/\+First Search (BFS) algorithm to find a path from source to destination in a \mbox{\hyperlink{class_graph}{Graph}}. This function implements the Breadth-\/\+First Search (BFS) algorithm to find a path from a given source \mbox{\hyperlink{class_vertex}{Vertex}} to a destination \mbox{\hyperlink{class_vertex}{Vertex}} in a \mbox{\hyperlink{class_graph}{Graph}}. It uses a queue data structure to explore the \mbox{\hyperlink{class_graph}{Graph}} in breadth-\/first order, starting from the source \mbox{\hyperlink{class_vertex}{Vertex}}. The \mbox{\hyperlink{class_graph}{Graph}} is assumed to have already been populated with \mbox{\hyperlink{class_vertex}{Vertex}} and \mbox{\hyperlink{class_edge}{Edge}} objects, and their visited and path states are updated during the BFS traversal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Pointer to the source \mbox{\hyperlink{class_vertex}{Vertex}} from where the BFS traversal starts. \\
+\hline
+{\em destination} & Pointer to the destination \mbox{\hyperlink{class_vertex}{Vertex}} that is being searched for. \\
+\hline
+{\em railway} & A reference to the \mbox{\hyperlink{class_graph}{Graph}} object in which the BFS traversal is performed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if a path is found from source to destination, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00599}{599}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a7562b84480c1e78e800b3d203e67f4a7}\label{main_8cpp_a7562b84480c1e78e800b3d203e67f4a7}} 
+\index{main.cpp@{main.cpp}!createReducedGraph@{createReducedGraph}}
+\index{createReducedGraph@{createReducedGraph}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{createReducedGraph()}{createReducedGraph()}}
+{\footnotesize\ttfamily void create\+Reduced\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Creates a reduced subgraph of the \mbox{\hyperlink{class_graph}{Graph}} by removing stations and connections. 
+
+This function allows the user to interactively create a reduced subgraph of the \mbox{\hyperlink{class_graph}{Graph}} by
+
+removing stations and connections between stations. It prompts the user for input to remove
+
+stations and connections, and performs the necessary operations on the \mbox{\hyperlink{class_graph}{Graph}} object \textquotesingle{}railway\textquotesingle{}
+
+to create the reduced subgraph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to the \mbox{\hyperlink{class_graph}{Graph}} object for which the reduced subgraph is to be created. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00626}{626}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a689bd27a3ef02e8a0c3480448483ce25}\label{main_8cpp_a689bd27a3ef02e8a0c3480448483ce25}} 
+\index{main.cpp@{main.cpp}!interface@{interface}}
+\index{interface@{interface}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{interface()}{interface()}}
+{\footnotesize\ttfamily void interface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Displays the interface menu for a Railway Management System and handles user input. This function displays a menu with options for different functionalities of a Railway Management System. It prompts the user to enter their choice, validates the input, and calls the corresponding function based on the user\textquotesingle{}s choice. If the user enters an invalid option, they are prompted to enter a valid option until a valid choice is made. The function uses a switch statement to execute the appropriate functionality based on the user\textquotesingle{}s input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00327}{327}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00255}{255}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_acc2656041e9b46fc1d46b000971b0959}\label{main_8cpp_acc2656041e9b46fc1d46b000971b0959}} 
+\index{main.cpp@{main.cpp}!maxTrainsAtStation@{maxTrainsAtStation}}
+\index{maxTrainsAtStation@{maxTrainsAtStation}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{maxTrainsAtStation()}{maxTrainsAtStation()}}
+{\footnotesize\ttfamily void max\+Trains\+At\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Reports the maximum number of trains that can simultaneously arrive at a given station in a railway network. This function takes a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network as input and prompts the user to enter the name of a station for which the maximum number of trains that can simultaneously arrive needs to be calculated. It then calls the \mbox{\hyperlink{main_8cpp_acc2656041e9b46fc1d46b000971b0959}{max\+Trains\+At\+Station()}} function on the \mbox{\hyperlink{class_graph}{Graph}} object, passing the station as an argument, to calculate and report the maximum number of trains that can simultaneously arrive at the given station based on the network\textquotesingle{}s capacity constraints. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00497}{497}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a14a379ecf6bf716d2f258ea111c2262b}\label{main_8cpp_a14a379ecf6bf716d2f258ea111c2262b}} 
+\index{main.cpp@{main.cpp}!maxTrainsBetweenStations@{maxTrainsBetweenStations}}
+\index{maxTrainsBetweenStations@{maxTrainsBetweenStations}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{maxTrainsBetweenStations()}{maxTrainsBetweenStations()}}
+{\footnotesize\ttfamily void max\+Trains\+Between\+Stations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Calculates the maximum number of trains that can simultaneously travel between two specific stations in a railway network. This function prompts the user to enter the names of the source and destination stations. It then calls the Edmonds-\/\+Karp algorithm on the \mbox{\hyperlink{class_graph}{Graph}} object to find the maximum flow between the source and destination stations, which represents the maximum number of trains that can simultaneously travel between the two stations. The calculated result is displayed on the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00439}{439}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_aa08dc3e838cc0f52b05fcd2b9fa1c032}\label{main_8cpp_aa08dc3e838cc0f52b05fcd2b9fa1c032}} 
+\index{main.cpp@{main.cpp}!maxTrainsReducedConnectivity@{maxTrainsReducedConnectivity}}
+\index{maxTrainsReducedConnectivity@{maxTrainsReducedConnectivity}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{maxTrainsReducedConnectivity()}{maxTrainsReducedConnectivity()}}
+{\footnotesize\ttfamily void max\+Trains\+Reduced\+Connectivity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Calculates the maximum number of trains that can simultaneously travel between two specific stations in a network of reduced connectivity. This function creates a reduced graph from the original railway network using the \mbox{\hyperlink{main_8cpp_a7562b84480c1e78e800b3d203e67f4a7}{create\+Reduced\+Graph()}} function, and then calculates the maximum number of trains that can simultaneously travel between two specific stations in the reduced graph using the \mbox{\hyperlink{main_8cpp_a14a379ecf6bf716d2f258ea111c2262b}{max\+Trains\+Between\+Stations()}} function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & The \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00768}{768}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_aee14bab852c037519bbd43744f940edc}\label{main_8cpp_aee14bab852c037519bbd43744f940edc}} 
+\index{main.cpp@{main.cpp}!minCostTrains@{minCostTrains}}
+\index{minCostTrains@{minCostTrains}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{minCostTrains()}{minCostTrains()}}
+{\footnotesize\ttfamily void min\+Cost\+Trains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Calculates the maximum amount of trains that can simultaneously travel between two specific stations with minimum cost. 
+
+This function takes a railway network represented by a \mbox{\hyperlink{class_graph}{Graph}} object and prompts the user to enter the source and destination
+
+station names. It then calculates the maximum amount of trains that can simultaneously travel between the source and destination
+
+stations with minimum cost, using the Ford-\/\+Fulkerson algorithm with the BFS-\/based augmenting path finding method. The function
+
+updates the flow along the augmenting path with the optimal service type, and keeps track of the maximum flow and total cost of
+
+trains allocated along the augmenting path. Finally, it prints the maximum flow and total cost to the console.
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00516}{516}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ab36057c34419337ad419f730307028f3}\label{main_8cpp_ab36057c34419337ad419f730307028f3}} 
+\index{main.cpp@{main.cpp}!mostAffectedStations@{mostAffectedStations}}
+\index{mostAffectedStations@{mostAffectedStations}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mostAffectedStations()}{mostAffectedStations()}}
+{\footnotesize\ttfamily void most\+Affected\+Stations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Provides a report on the stations that are the most affected by each segment failure in a railway network with reduced connectivity. This function creates a reduced graph from the original railway network using the \mbox{\hyperlink{main_8cpp_a7562b84480c1e78e800b3d203e67f4a7}{create\+Reduced\+Graph()}} function. Then, it identifies the most affected stations by each segment failure in the reduced graph using the Most\+Affect\+Stations() function. It displays the list of most affected stations, if any, and pauses for user input before returning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & The \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00774}{774}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a6e55989933c573d1834e12259a5eeb5c}\label{main_8cpp_a6e55989933c573d1834e12259a5eeb5c}} 
+\index{main.cpp@{main.cpp}!mostTrainsRequired@{mostTrainsRequired}}
+\index{mostTrainsRequired@{mostTrainsRequired}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{mostTrainsRequired()}{mostTrainsRequired()}}
+{\footnotesize\ttfamily void most\+Trains\+Required (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Determines which stations in a railway network require the most amount of trains. This function calls the Max\+Flow\+Between\+Pairs() function on the \mbox{\hyperlink{class_graph}{Graph}} object to calculate the maximum flow between all pairs of source and destination stations in the railway network. The maximum flow represents the maximum number of trains that can simultaneously travel between each pair of stations. The function then determines which stations require the most amount of trains based on the calculated maximum flows, and displays the results on the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00468}{468}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a8403be2ec4466e97871df886434da7a5}\label{main_8cpp_a8403be2ec4466e97871df886434da7a5}} 
+\index{main.cpp@{main.cpp}!operationCostOptimization@{operationCostOptimization}}
+\index{operationCostOptimization@{operationCostOptimization}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{operationCostOptimization()}{operationCostOptimization()}}
+{\footnotesize\ttfamily void operation\+Cost\+Optimization (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Performs operations cost optimization in a railway network. This function presents a menu of options to the user for operations cost optimization in a railway network. The user can choose to calculate the maximum amount of trains that can simultaneously travel between two specific stations with minimum cost. The function then calls the appropriate function based on the user\textquotesingle{}s choice to perform the operations cost optimization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to a \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00392}{392}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ac20012e26995060505933cde0447fdd7}\label{main_8cpp_ac20012e26995060505933cde0447fdd7}} 
+\index{main.cpp@{main.cpp}!parse\_csv\_line@{parse\_csv\_line}}
+\index{parse\_csv\_line@{parse\_csv\_line}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{parse\_csv\_line()}{parse\_csv\_line()}}
+{\footnotesize\ttfamily vector$<$ string $>$ parse\+\_\+csv\+\_\+line (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{line }\end{DoxyParamCaption})}
+
+
+
+Parses a line of CSV (Comma-\/\+Separated Values) and returns a vector of fields. This function takes a line of text in CSV format and splits it into fields using commas as delimiters. Fields enclosed in double quotes are treated as a single field, even if they contain commas. The resulting fields are stored in a vector of strings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & The input string containing the CSV line to be parsed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings representing the fields extracted from the CSV line. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00262}{262}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a7167f5c196fc5e167bfabde1a730e81d}\label{main_8cpp_a7167f5c196fc5e167bfabde1a730e81d}} 
+\index{main.cpp@{main.cpp}!pause@{pause}}
+\index{pause@{pause}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily void pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pauses program execution and waits for user input to continue. This function displays a prompt message to the user to press ENTER to continue, and then waits for the user to press ENTER before continuing with the program execution. It uses the std\+::cin.\+ignore() function to discard any remaining input in the input stream, allowing the program to wait for user input. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00763}{763}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a769323a443dc750b6a9547688697baa4}\label{main_8cpp_a769323a443dc750b6a9547688697baa4}} 
+\index{main.cpp@{main.cpp}!printEdgeInfo@{printEdgeInfo}}
+\index{printEdgeInfo@{printEdgeInfo}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{printEdgeInfo()}{printEdgeInfo()}}
+{\footnotesize\ttfamily void print\+Edge\+Info (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_edge}{Edge}} $\ast$}]{edge }\end{DoxyParamCaption})}
+
+
+
+Prints information about an \mbox{\hyperlink{class_edge}{Edge}} object. This function generates a string representation of the \mbox{\hyperlink{class_edge}{Edge}} object, including its origin and destination station names, capacity, and service information. The generated string is formatted with a delimiter of a certain column size, and each field is displayed in a separate line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & Pointer to the \mbox{\hyperlink{class_edge}{Edge}} object to be printed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00738}{738}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_ae65beeb67c40162a92b3b5615ade4d07}\label{main_8cpp_ae65beeb67c40162a92b3b5615ade4d07}} 
+\index{main.cpp@{main.cpp}!randStoLineFailures@{randStoLineFailures}}
+\index{randStoLineFailures@{randStoLineFailures}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{randStoLineFailures()}{randStoLineFailures()}}
+{\footnotesize\ttfamily void rand\+Sto\+Line\+Failures (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Generates a report on stations that are the most affected by each segment failure or calculates the maximum number of trains that can simultaneously travel between two specific stations in a network of reduced connectivity. This function presents a menu with three options\+: Calculate the maximum number of trains that can simultaneously travel between two specific stations in a network of reduced connectivity. Provide a report on the stations that are the most affected by each segment failure. Return to the previous menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & The \mbox{\hyperlink{class_graph}{Graph}} object representing the railway network. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00414}{414}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_aa1939b5a4a23f2fd3f28551a7ff725b2}\label{main_8cpp_aa1939b5a4a23f2fd3f28551a7ff725b2}} 
+\index{main.cpp@{main.cpp}!read@{read}}
+\index{read@{read}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily void read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Reads railway information from CSV files and updates a \mbox{\hyperlink{class_graph}{Graph}} object. This function reads railway information from two CSV files\+: stations.\+csv and network.\+csv. The stations.\+csv file contains station information, which is read using the \mbox{\hyperlink{main_8cpp_a5c40bd6285e30820d5fb8d8789c1b098}{read\+Stations()}} function to populate an unordered map with station names as keys and \mbox{\hyperlink{class_vertex}{Vertex}} pointers as values. The network.\+csv file contains network information, which is read using the \mbox{\hyperlink{main_8cpp_a0dbfd2cfa1fdebc9167f57ac8e12e434}{read\+Network()}} function to update the \mbox{\hyperlink{class_graph}{Graph}} object with bidirectional edges between stations based on the station map obtained from \mbox{\hyperlink{main_8cpp_a5c40bd6285e30820d5fb8d8789c1b098}{read\+Stations()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to the \mbox{\hyperlink{class_graph}{Graph}} object to be updated with railway information. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & If the stations.\+csv or network.\+csv files cannot be opened. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00323}{323}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a0dbfd2cfa1fdebc9167f57ac8e12e434}\label{main_8cpp_a0dbfd2cfa1fdebc9167f57ac8e12e434}} 
+\index{main.cpp@{main.cpp}!readNetwork@{readNetwork}}
+\index{readNetwork@{readNetwork}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readNetwork()}{readNetwork()}}
+{\footnotesize\ttfamily void read\+Network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway,  }\item[{unordered\+\_\+map$<$ string, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$}]{stations }\end{DoxyParamCaption})}
+
+
+
+Reads network information from a CSV file and updates a \mbox{\hyperlink{class_graph}{Graph}} object. This function reads network information from a CSV file, where each line represents a connection between two stations with various attributes separated by commas. The information is parsed using the \mbox{\hyperlink{main_8cpp_ac20012e26995060505933cde0447fdd7}{parse\+\_\+csv\+\_\+line()}} function, and the corresponding \mbox{\hyperlink{class_vertex}{Vertex}} pointers are retrieved from the provided unordered map of stations. The railway \mbox{\hyperlink{class_graph}{Graph}} object is then updated with bidirectional edges between the stations using the add\+Bidirectional\+Edge() function, with the parsed attributes such as weight and edge label. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to the \mbox{\hyperlink{class_graph}{Graph}} object to be updated with network information. \\
+\hline
+{\em stations} & An unordered map with station names as keys and \mbox{\hyperlink{class_vertex}{Vertex}} pointers as values. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & If the network.\+csv file cannot be opened. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00304}{304}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+\mbox{\Hypertarget{main_8cpp_a5c40bd6285e30820d5fb8d8789c1b098}\label{main_8cpp_a5c40bd6285e30820d5fb8d8789c1b098}} 
+\index{main.cpp@{main.cpp}!readStations@{readStations}}
+\index{readStations@{readStations}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{readStations()}{readStations()}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$ string, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ read\+Stations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}} \&}]{railway }\end{DoxyParamCaption})}
+
+
+
+Reads station information from a CSV file and stores it in an unordered map. This function reads station information from a CSV file, where each line represents a station with various attributes separated by commas. The information is parsed using the \mbox{\hyperlink{main_8cpp_ac20012e26995060505933cde0447fdd7}{parse\+\_\+csv\+\_\+line()}} function, and a new \mbox{\hyperlink{class_vertex}{Vertex}} object is created for each station using the parsed fields. The \mbox{\hyperlink{class_vertex}{Vertex}} objects are added to a \mbox{\hyperlink{class_graph}{Graph}} object, and the station names are used as keys in an unordered map to store the corresponding \mbox{\hyperlink{class_vertex}{Vertex}} pointers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em railway} & A reference to the \mbox{\hyperlink{class_graph}{Graph}} object to which the \mbox{\hyperlink{class_vertex}{Vertex}} objects will be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An unordered map with station names as keys and \mbox{\hyperlink{class_vertex}{Vertex}} pointers as values. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & If the stations.\+csv file cannot be opened. \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00283}{283}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+

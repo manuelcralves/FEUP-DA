@@ -1,0 +1,346 @@
+\hypertarget{class_graph}{}\doxysection{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a902c5b3eacb66d60752525ab23297a95}{$\sim$\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_graph}{Graph}} class destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ \mbox{\hyperlink{class_graph_ab3962d937fa880de4d3adda6af3f758e}{find\+Vertex}} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Finds a vertex in the graph by name. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_acbf357c61ced3d3c3a3cd519be925428}{add\+Vertex}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$vertex)
+\begin{DoxyCompactList}\small\item\em Adds a vertex to the graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a0edb90589cba9947cf4dab4928bb0e67}{add\+Bidirectional\+Edge}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$v1, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$v2, double w, std\+::string service)
+\begin{DoxyCompactList}\small\item\em Adds a bidirectional edge between two vertices in the graph. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a0998e37c572bc7d2f260b007227efabf}{Edmonds\+Karp}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$s, \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Implements the Edmonds-\/\+Karp algorithm to compute the maximum flow in the graph from a source vertex to a target vertex. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a06df07a7942e877cd59307f66b252f77}{Max\+Flow\+Between\+Pairs}} ()
+\begin{DoxyCompactList}\small\item\em Computes the maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a48d9be7ae38a84b74b6102a3a3f43108}{top\+Districts}} (int k)
+\begin{DoxyCompactList}\small\item\em Computes the top districts with the highest maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a4808009efd2c4fb4876bfa2a8b3bf1ed}{top\+Municipalities}} (int k)
+\begin{DoxyCompactList}\small\item\em Computes the top municipalities with the highest maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a9903dc8775815bb65208f158c32d4697}{max\+Trains\+At\+Station}} (\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$station)
+\begin{DoxyCompactList}\small\item\em Computes the maximum number of trains that can simultaneously arrive at a given station in the graph using the Edmonds-\/\+Karp algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_a619ac583094079134074658e29463c0e}{get\+Vertex\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Gets the vector of vertices in the graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a6fdb00dc1c06ccd6934a8e1384119758}{remove\+Vertex}} (const std\+::string \&station\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Removes a vertex from the graph by station name. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_graph_ace0dcc18c4568beff9ca3e38082b046b}{Most\+Affect\+Stations}} (\mbox{\hyperlink{class_graph}{Graph}} rc)
+\begin{DoxyCompactList}\small\item\em Computes the most affected stations in the graph by comparing the maximum flow with another graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ \mbox{\hyperlink{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}{vertex\+Set}}
+\item 
+double $\ast$$\ast$ \mbox{\hyperlink{class_graph_a9e61864da69191c1896a25a708d1a02d}{dist\+Matrix}} = nullptr
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}{path\+Matrix}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00016}{16}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_a902c5b3eacb66d60752525ab23297a95}\label{class_graph_a902c5b3eacb66d60752525ab23297a95}} 
+\index{Graph@{Graph}!````~Graph@{$\sim$Graph}}
+\index{````~Graph@{$\sim$Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{$\sim$Graph()}{~Graph()}}
+{\footnotesize\ttfamily Graph\+::$\sim$\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_graph}{Graph}} class destructor. 
+
+The destructor for the \mbox{\hyperlink{class_graph}{Graph}} class is responsible for deallocating the dynamically allocated memory for the distance matrix and path matrix, which are used in graph algorithms. It calls the helper functions \textquotesingle{}\mbox{\hyperlink{_graph_8cpp_ad56527992afe31a371065e795da57d25}{delete\+Matrix()}}\textquotesingle{} to delete the memory for both matrices. 
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00250}{250}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_a0edb90589cba9947cf4dab4928bb0e67}\label{class_graph_a0edb90589cba9947cf4dab4928bb0e67}} 
+\index{Graph@{Graph}!addBidirectionalEdge@{addBidirectionalEdge}}
+\index{addBidirectionalEdge@{addBidirectionalEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalEdge()}{addBidirectionalEdge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Bidirectional\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{v1,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{v2,  }\item[{double}]{w,  }\item[{std\+::string}]{service }\end{DoxyParamCaption})}
+
+
+
+Adds a bidirectional edge between two vertices in the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Pointer to the first vertex. \\
+\hline
+{\em v2} & Pointer to the second vertex. \\
+\hline
+{\em w} & Weight of the edge. \\
+\hline
+{\em service} & Service associated with the edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the edge was added successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00042}{42}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_acbf357c61ced3d3c3a3cd519be925428}\label{class_graph_acbf357c61ced3d3c3a3cd519be925428}} 
+\index{Graph@{Graph}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{vertex }\end{DoxyParamCaption})}
+
+
+
+Adds a vertex to the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertex} & A pointer to the vertex to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the vertex was added successfully, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_a0998e37c572bc7d2f260b007227efabf}\label{class_graph_a0998e37c572bc7d2f260b007227efabf}} 
+\index{Graph@{Graph}!EdmondsKarp@{EdmondsKarp}}
+\index{EdmondsKarp@{EdmondsKarp}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{EdmondsKarp()}{EdmondsKarp()}}
+{\footnotesize\ttfamily double Graph\+::\+Edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Implements the Edmonds-\/\+Karp algorithm to compute the maximum flow in the graph from a source vertex to a target vertex. 
+
+The function implements the Edmonds-\/\+Karp algorithm to compute the maximum flow in the graph from a source vertex to a target vertex. It takes two \mbox{\hyperlink{class_vertex}{Vertex}} pointers, representing the source and target vertices, as input. It uses a lambda function for Breadth-\/\+First Search (BFS) to find augmenting paths from the source to the target. The lambda function performs the BFS and updates the flow of the edges in the augmenting path. The function maintains a running total of the maximum flow and returns it as the result.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The source vertex. \\
+\hline
+{\em t} & The target vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The maximum flow from the source to the target vertex. Time Complexity\+: O(\+VE$^\wedge$2) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_ab3962d937fa880de4d3adda6af3f758e}\label{class_graph_ab3962d937fa880de4d3adda6af3f758e}} 
+\index{Graph@{Graph}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ Graph\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Finds a vertex in the graph by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the vertex to be found. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the vertex if found, nullptr otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_a619ac583094079134074658e29463c0e}\label{class_graph_a619ac583094079134074658e29463c0e}} 
+\index{Graph@{Graph}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}} $\ast$ $>$ Graph\+::get\+Vertex\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the vector of vertices in the graph. 
+
+\begin{DoxyReturn}{Returns}
+A vector containing pointers to all the vertices in the graph. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_a06df07a7942e877cd59307f66b252f77}\label{class_graph_a06df07a7942e877cd59307f66b252f77}} 
+\index{Graph@{Graph}!MaxFlowBetweenPairs@{MaxFlowBetweenPairs}}
+\index{MaxFlowBetweenPairs@{MaxFlowBetweenPairs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{MaxFlowBetweenPairs()}{MaxFlowBetweenPairs()}}
+{\footnotesize\ttfamily void Graph\+::\+Max\+Flow\+Between\+Pairs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Computes the maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. 
+
+The function finds the maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. It iterates over all pairs of vertices in the graph, computes the maximum flow between each pair using the Edmonds-\/\+Karp algorithm, and keeps track of the pairs with the maximum flow. The result is printed to the standard output along with the execution time in milliseconds. 
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_a9903dc8775815bb65208f158c32d4697}\label{class_graph_a9903dc8775815bb65208f158c32d4697}} 
+\index{Graph@{Graph}!maxTrainsAtStation@{maxTrainsAtStation}}
+\index{maxTrainsAtStation@{maxTrainsAtStation}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{maxTrainsAtStation()}{maxTrainsAtStation()}}
+{\footnotesize\ttfamily void Graph\+::max\+Trains\+At\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$}]{station }\end{DoxyParamCaption})}
+
+
+
+Computes the maximum number of trains that can simultaneously arrive at a given station in the graph using the Edmonds-\/\+Karp algorithm. 
+
+The function computes the maximum number of trains that can simultaneously arrive at a given station in the graph using the Edmonds-\/\+Karp algorithm. It adds a source vertex to the graph and connects it to all adjacent vertices of the given station. Then, it runs the Edmonds-\/\+Karp algorithm to compute the maximum flow from the source vertex to the given station, which represents the maximum number of trains that can simultaneously arrive at the station. Finally, it removes the source vertex and the edges added to the graph.
+
+
+\begin{DoxyParams}{Parameters}
+{\em station} & The station vertex for which to compute the maximum number of trains that can simultaneously arrive. Time Complexity\+: O(\+E$^\wedge$2 V) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00135}{135}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_ace0dcc18c4568beff9ca3e38082b046b}\label{class_graph_ace0dcc18c4568beff9ca3e38082b046b}} 
+\index{Graph@{Graph}!MostAffectStations@{MostAffectStations}}
+\index{MostAffectStations@{MostAffectStations}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{MostAffectStations()}{MostAffectStations()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Graph\+::\+Most\+Affect\+Stations (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}}]{rc }\end{DoxyParamCaption})}
+
+
+
+Computes the most affected stations in the graph by comparing the maximum flow with another graph. 
+
+The function computes the most affected stations in the graph by comparing the maximum flow of each edge in the graph with another graph. It takes a \mbox{\hyperlink{class_graph}{Graph}} object \textquotesingle{}rc\textquotesingle{} as input, which represents another graph for comparison. The function iterates over all vertices and their adjacent edges in the graph and computes the maximum flow using the Edmonds-\/\+Karp algorithm for each edge. It then compares the maximum flow of the edge in the original graph with the corresponding edge in \textquotesingle{}rc\textquotesingle{} graph. If the maximum flows are different, the function calculates the absolute difference and keeps track of the maximum difference found so far. It also maintains a set of added station pairs to avoid duplicates. The function returns a vector of strings representing the most affected stations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rc} & The graph to compare with for computing most affected stations. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings representing the most affected stations. Time Complexity\+: O(\+V$^\wedge$2 E$^\wedge$2) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00196}{196}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_a6fdb00dc1c06ccd6934a8e1384119758}\label{class_graph_a6fdb00dc1c06ccd6934a8e1384119758}} 
+\index{Graph@{Graph}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
+{\footnotesize\ttfamily bool Graph\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{station\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Removes a vertex from the graph by station name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em station\+\_\+name} & The name of the vertex (station) to be removed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vertex was successfully removed, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00008}{8}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_a48d9be7ae38a84b74b6102a3a3f43108}\label{class_graph_a48d9be7ae38a84b74b6102a3a3f43108}} 
+\index{Graph@{Graph}!topDistricts@{topDistricts}}
+\index{topDistricts@{topDistricts}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{topDistricts()}{topDistricts()}}
+{\footnotesize\ttfamily void Graph\+::top\+Districts (\begin{DoxyParamCaption}\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+Computes the top districts with the highest maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. 
+
+The function computes the top districts with the highest maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. It iterates over all pairs of vertices in the graph, computes the maximum flow between each pair using the Edmonds-\/\+Karp algorithm, and accumulates the maximum flow for each district. Then, it sorts the districts based on their accumulated maximum flow in descending order and prints the top districts along with their accumulated maximum flow to the standard output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The number of top districts to print. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00081}{81}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+\mbox{\Hypertarget{class_graph_a4808009efd2c4fb4876bfa2a8b3bf1ed}\label{class_graph_a4808009efd2c4fb4876bfa2a8b3bf1ed}} 
+\index{Graph@{Graph}!topMunicipalities@{topMunicipalities}}
+\index{topMunicipalities@{topMunicipalities}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{topMunicipalities()}{topMunicipalities()}}
+{\footnotesize\ttfamily void Graph\+::top\+Municipalities (\begin{DoxyParamCaption}\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+Computes the top municipalities with the highest maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. 
+
+The function computes the top municipalities with the highest maximum flow between pairs of vertices in the graph using the Edmonds-\/\+Karp algorithm. It iterates over all pairs of vertices in the graph, computes the maximum flow between each pair using the Edmonds-\/\+Karp algorithm, and accumulates the maximum flow for each municipality. Then, it sorts the municipalities based on their accumulated maximum flow in descending order and prints the top municipalities along with their accumulated maximum flow to the standard output.
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The number of top municipalities to print. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_graph_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{_graph_8cpp_source}{Graph.\+cpp}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graph_a9e61864da69191c1896a25a708d1a02d}\label{class_graph_a9e61864da69191c1896a25a708d1a02d}} 
+\index{Graph@{Graph}!distMatrix@{distMatrix}}
+\index{distMatrix@{distMatrix}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{distMatrix}{distMatrix}}
+{\footnotesize\ttfamily double$\ast$$\ast$ Graph\+::dist\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00148}{148}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\mbox{\Hypertarget{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}\label{class_graph_a3ae09699c3616af3ebfcb1eb045f2b62}} 
+\index{Graph@{Graph}!pathMatrix@{pathMatrix}}
+\index{pathMatrix@{pathMatrix}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{pathMatrix}{pathMatrix}}
+{\footnotesize\ttfamily int$\ast$$\ast$ Graph\+::path\+Matrix = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00149}{149}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\mbox{\Hypertarget{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}\label{class_graph_aa9b0a6d8ad43c5eabaca5a7140bcc8b6}} 
+\index{Graph@{Graph}!vertexSet@{vertexSet}}
+\index{vertexSet@{vertexSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{vertexSet}{vertexSet}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_vertex}{Vertex}} $\ast$$>$ Graph\+::vertex\+Set\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00146}{146}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/data\+\_\+structures/\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\item 
+src/data\+\_\+structures/\mbox{\hyperlink{_graph_8cpp}{Graph.\+cpp}}\end{DoxyCompactItemize}
